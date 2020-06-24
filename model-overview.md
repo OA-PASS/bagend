@@ -1,3 +1,6 @@
+---
+navigation_weight: 20
+---
 # BAGEND Resource Model Overview
 
 ## Relationship to BagIt
