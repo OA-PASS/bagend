@@ -6,8 +6,8 @@ navigation_weight: 20
 ## Relationship to BagIt
 The BAGEND specification builds upon the [BagIt standard][1] by:
 1. Requiring that valid and complete bags be used as defined in [RFC 8493][1], 
-2. requiring that bags conform to the BAGEND [BagIt profile][2], and 
-3. the definition and use of two novel BagIt metadata tags: `BagEnd-Submission-File` and `BagEnd-Submission-Resource`.
+2. Requiring that bags conform to the BAGEND [BagIt profile][2], and 
+3. Requiring the definition and use of two novel BagIt metadata tags: `BagEnd-Submission-File` and `BagEnd-Submission-Resource`.
 
 Requiring complete and valid bags ensures that any files referenced by BAGEND BagIt tags and BAGEND model resources will be present when the bag is processed.  
 
