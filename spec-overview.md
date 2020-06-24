@@ -1,7 +1,7 @@
 ---
 navigation_weight: 10
 ---
-# BAGEND Specification Overview
+# Specification Overview
 
 BagIt is an IETF informational document, specifying a methodology for organizing a group of files and related metadata, typically encapsulating them as a single zip or tar file.  Attractive features of BagIt include a structured layout of the files being packaged, a built-in mechanism for ensuring the integrity of the content, and the ability to tailor the metadata contained within the package using BagIt Profiles.  These features, combined with the availability of tools and software that create and process bags, make it an attractive mechanism for depositing research articles and data to federal agency systems.
 

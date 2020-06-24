@@ -1,7 +1,7 @@
 ---
 navigation_weight: 20
 ---
-# BAGEND Resource Model Overview
+# Resource Model Overview
 
 ## Relationship to BagIt
 The BAGEND specification builds upon the BagIt standard by 1) requiring that valid and complete bags be used as defined in the BagIt IETF document, 2) requiring that bags conform to the BAGEND BagIt profile, and 3) the definition and use of two novel BagIt metadata tags: BagEnd-Submission-File and BagEnd-Submission-Resource.
