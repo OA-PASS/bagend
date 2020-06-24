@@ -1,4 +1,4 @@
-# Background
+## Background
 
 In December 2019 Johns Hopkins convened a meeting to discuss the challenges and opportunities presented by the use of open infrastructure as it relates to satisfying federal policies for academic research funded by U.S. federal agencies.  In attendance were representatives from the NIH, NSF, and OSTI.  Academic institutions were represented by Arizona State University, the California Digital Library, Duke University, Harvard University, the University of Michigan, MIT, and the University of Notre Dame.  Attendees believe there is a role for open infrastructure and services to facilitate compliance with federal policies, and that implementing open technology in this space has potential benefits for all parties involved, including researchers, institutions, and federal funding agencies.  
 
