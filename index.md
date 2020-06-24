@@ -8,7 +8,10 @@ In December 2019 Johns Hopkins convened a meeting to discuss the challenges and 
 This meeting focused specifically on the transfer of federally funded research materials to federal information systems, normally undertaken by a researcher at, or near, the time of publication of their research in an academic journal.  Some journals deposit research materials to federal agencies on behalf of the researcher, but in other cases the task must be undertaken by the researcher themself.  Navigating this process can present barriers to ensuring a timely and complete submission to federal repositories.  The attendees agreed that new mechanisms should be explored to lower the barriers for these transactions, and recognized the potential efficiencies realized by adoption of uniform processes across agencies and institutions.  To that end, attendees focused on facilitating automated deposit of research materials to agency systems.
 
 ## Three challenges
-Three fundamental challenges were identified as critical for facilitating the deposit of research materials to federal systems: 1) trust on the part of the federal agency that the information describing the information being submitted is complete and correct, 2) ability of the sender to receive updates on the status of a submission, and 3) metadata present in the submission meets the requirements of the federal agency in content and format.
+Three fundamental challenges were identified as critical for facilitating the deposit of research materials to federal systems: 
+1. Trust on the part of the federal agency that the information describing the information being submitted is complete and correct,
+2. Ability of the sender to receive updates on the status of a submission,
+3. The metadata present in the submission meets the requirements of the federal agency in content and format.
 
 ## First Steps
-Specifically, the meeting attendees agreed that a first step toward addressing these concerns would be to endorse a set of recommendations which includes the use of BagIt to submit materials to federal agencies, and development of a conceptual model describing the content of the bag and its metadata.
+The meeting attendees agreed that a first step toward addressing these concerns would be to endorse a set of recommendations which includes the use of BagIt to submit materials to federal agencies, and development of a conceptual model describing the content of the bag and its metadata.
