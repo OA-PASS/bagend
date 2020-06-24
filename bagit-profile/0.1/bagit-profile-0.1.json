@@ -1,3 +1,7 @@
+---
+layout: null
+permalink: /bagit-profile/0.1
+---
 {
   "BagIt-Profile-Info": {
     "BagIt-Profile-Identifier": "http://bagend.io/bagit-profile/0.1",
