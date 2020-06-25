@@ -11,5 +11,5 @@ defaults:
   - scope:
       path: "bagit-profile/bagit-profile-0.2.json"
     values:
-      permalink: /bagit-profile/0.2
+      permalink: "/bagit-profile/0.2"
 
