@@ -23,5 +23,5 @@ The BAGEND identity model calls for resource identifiers that are unique within 
 
 
 [1]: https://tools.ietf.org/html/rfc8493
-[2]: http://bagend.io/bagit-profile/0.1
+[2]: http://bagend.io/bagit-profile/0.1/
 [3]: https://www.w3.org/TR/json-ld11/
