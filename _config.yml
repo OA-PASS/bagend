@@ -2,4 +2,3 @@ theme: jekyll-theme-cayman
 title: BagIt-ENabled Deposit (BAGEND)
 description: Provides a publication-centric model for describing BagIt payloads
 show_downloads: false
-
