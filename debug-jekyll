@@ -2,10 +2,13 @@
 
 for ip in 185.199.109.153 185.199.111.153 185.199.108.153 185.199.110.153 ;
 do
-  echo "$ip http://$ip/bagit-profile/0.1"
+  url01="http://$ip/bagit-profile/0.1/"
+  url02="http://$ip/bagit-profile/0.2/"
+
+  echo "$ip $url01"
   echo -n "  " 
-  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" http://$ip/bagit-profile/0.1
-  echo "$ip http://$ip/bagit-profile/0.2"
+  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" $url01
+  echo "$ip $url02"
   echo -n "  "
-  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" http://$ip/bagit-profile/0.2
+  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" $url02
 done
