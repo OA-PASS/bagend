@@ -4,13 +4,12 @@ description: Provides a publication-centric model for describing BagIt payloads
 show_downloads: false
 
 defaults:
-  - 
-    scope:
+  - scope:
       path: "bagit-profile/bagit-profile-0.1.json"
     values:
       permalink: /bagit-profile/0.1
-  - 
-    scope:
+  - scope:
       path: "bagit-profile/bagit-profile-0.2.json"
     values:
       permalink: /bagit-profile/0.2
+
