@@ -2,7 +2,10 @@
 
 for ip in 185.199.109.153 185.199.111.153 185.199.108.153 185.199.110.153 ;
 do
-  curl -s -o /dev/null -w "%{http_code} %{content_type}" -H "Host: bagend.io" http://$ip/bagit-profile/0.1
-  curl -s -o /dev/null -w "%{http_code} %{content_type}" -H "Host: bagend.io" http://$ip/bagit-profile/0.2
-  echo ""
+  echo "$ip http://$ip/bagit-profile/0.1"
+  echo -n "  " 
+  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" http://$ip/bagit-profile/0.1
+  echo "$ip http://$ip/bagit-profile/0.2"
+  echo -n "  "
+  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" http://$ip/bagit-profile/0.2
 done
