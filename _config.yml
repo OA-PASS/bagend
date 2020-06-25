@@ -8,4 +8,4 @@ defaults:
     scope:
       path: "bagit-profile/bagit-profile-0.1.json"
     values:
-      permalink: /bagit-profile/0.1
+      permalink: /bagit-profile/0.1/
