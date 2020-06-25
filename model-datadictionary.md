@@ -3,9 +3,9 @@ navigation_weight: 25
 ---
 # Resource Model Data Dictionary
 
-| **[`Agreement`](#Agreement)** |
-| --- |
-| Encapsulates any and all form of agreement or contract related to the Submission, Article, or Data Files |
+## **[`Agreement`](#Agreement)** 
+
+Encapsulates any and all form of agreement or contract related to the Submission, Article, or Data Files
 
 | **Field Name** | **JSON-LD Field Name** | **JSON-LD Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -18,9 +18,8 @@ navigation_weight: 25
 | Contract (a `Contract`) | contract | IRI or Node Object | String or object | The terms of use agreed upon, license being granted, or other contract. |
 
 
-| **[`Article`](#Article)** |
-| --- |
-| Represents the Author Accepted Manuscript or Published Article. The primary intellectual output captured by a Submission. |
+## **[`Article`](#Article)**
+Represents the Author Accepted Manuscript or Published Article. The primary intellectual output captured by a Submission.
 
 | **Conceptual Field** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -40,9 +39,8 @@ navigation_weight: 25
 | Files (each is a `File`) | files | IRI or Node Object | Array of string or object | Data files for the submission, including the manuscript and any supplementary data. |
 
 
-| **[`Award`](#Award)** |
-| --- |
-| The award or awards that funded the research represented in the Article or data |
+## **[`Award`](#Award)**
+The award or awards that funded the research represented in the Article or data
 
 | **Conceptual Field** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -60,9 +58,8 @@ navigation_weight: 25
 | Award Contact (a `Person`) | award-contact | IRI or Node Object | String or object | The institutional contact for this Award |
 
 
-| **[`Contract`](#Contract)** |
-| --- |
-| Encapsulates any and all form of agreement or contract related to the Submission, Article, or Data Files |
+## **[`Contract`](#Contract)**
+Encapsulates any and all form of agreement or contract related to the Submission, Article, or Data Files
 
 | **Conceptual Field Name** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -76,9 +73,8 @@ navigation_weight: 25
 | See Also | see-also | Value Object (xsd:anyURI) | string | The splash page, or layperson equivalent view of an agreement, licence, or terms of use. For example, the CC-0 [splash page](https://creativecommons.org/publicdomain/zero/1.0/) or ASF 2.0 [splash-page](https://www.apache.org/licenses/LICENSE-2.0). |
 
 
-| **[`File`](#File)** |
-| --- |
-| Represents the binary files and their roles associated with an Article. These would be considered part of the custodial content of a package. |
+## **[`File`](#File)**
+Represents the binary files and their roles associated with an Article. These would be considered part of the custodial content of a package.
 
 | **Conceptual Field** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -95,9 +91,8 @@ navigation_weight: 25
 | Size | size-bytes | Value object | number | The length of this File in bytes |
 
 
-| **[`Journal`](#Journal)** |
-| --- |
-| Metadata describing a Journal in print and/or electronic form |
+## **[`Journal`](#Journal)**
+Metadata describing a Journal in print and/or electronic form
 
 | **Conceptual Field Name** | **JSON-LD Field Name** | **JSON-LD Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -113,9 +108,8 @@ navigation_weight: 25
 | Publisher Name | publisher-name | Value Object | string | The name of the Journal publisher. |
 
 
-| **[`Organization`](#Organization)** |
-| --- |
-| Represents an organization related to the research or funding of the Article |
+## **[`Organization`](#Organization)**
+Represents an organization related to the research or funding of the Article
 
 | **Conceptual Field Name** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -138,9 +132,8 @@ navigation_weight: 25
 | Postal Code | postal-code | Value Object | string | The postal code (i.e. zip code) of this Organization |
 
 
-| **[`Person`](#Person)** |
-| --- |
-| Accounts for people and their roles |
+## **[`Person`](#Person)**
+Accounts for people and their roles
 
 | **Conceptual Field** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -155,9 +148,8 @@ navigation_weight: 25
 | ORCID | orcid | IRI | string | The ORCID of this Person encoded as an IRI |
 
 
-| **[`Publication`](#Publication)** |
-| --- |
-| Represents the Article in the context of its publication |
+## **[`Publication`](#Publication)**
+Represents the Article in the context of its publication
 
 | **Conceptual Field** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
@@ -173,9 +165,8 @@ navigation_weight: 25
 | Journal | journal | IRI or Node Object | String or object | The Journal this Publication was published in |
 
 
-| **[`Submission`](#Submission)** |
-| --- |
-| Represents a submission to an agency, containing the Article, Data Files, Award information, people involved in the submission process, and any agreements or contracts signed as part of the submission. |
+## **[`Submission`](#Submission)**
+Represents a submission to an agency, containing the Article, Data Files, Award information, people involved in the submission process, and any agreements or contracts signed as part of the submission.
 
 | **Conceptual Field** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
