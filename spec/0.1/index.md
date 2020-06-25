@@ -39,7 +39,7 @@ Consumers MAY process the Resource Model as JSON without interpreting it as Link
 
 ### Model Description
 
-This section is non-normative.
+> This section is non-normative.
 
 The BAGEND Resource Model is used to describe the custodial content of the bag, and is composed of the following conceptual entities:
 
@@ -59,7 +59,7 @@ Table 1: Overview of the Resource Model entities
 
 ### Alignment with BagIt
 
-This section is non-normative.
+> This section is non-normative.
 
 If a `BagIt-Profile-Identifier` tag exists with a value of `http://bagend.io/bagit-profile/0.1/` in `bag-info.txt`, then the consumer may apply semantics of the Resource Model to bag metadata where their fields align. This may be useful when a bag which conforms to the BAGEND profile does not contain a Resource Model instance. If values present in bag metadata conflict with values in an existing Resource Model, the Resource Model values take precedence.
 
