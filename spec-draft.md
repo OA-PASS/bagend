@@ -1,7 +1,7 @@
 ---
 navigation_weight: 15
 ---
-# DRAFT
+# Specification DRAFT
 
 This is a DRAFT specification, not intended for use or reference.
 
