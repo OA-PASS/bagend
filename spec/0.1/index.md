@@ -1,6 +1,5 @@
 ---
 navigation_weight: 15
-permalink: /bagend/0.1
 ---
 # Specification DRAFT
 
