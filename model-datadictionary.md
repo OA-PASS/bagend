@@ -17,6 +17,7 @@ navigation_weight: 25
 | Role | contract-role | Value Object | string | The role of the Contract associated with the Agreement (e.g. a &quot;Terms of Service&quot;, &quot;License&quot;, etc.) |
 | Contract (a `Contract`) | contract | IRI or Node Object | String or object | The terms of use agreed upon, license being granted, or other contract. |
 
+
 | **[`Article`](#Article)** |
 | --- |
 | Represents the Author Accepted Manuscript or Published Article. The primary intellectual output captured by a Submission. |
@@ -38,6 +39,7 @@ navigation_weight: 25
 | Awards (each is an `Award`) | awards | IRI or Node Object | Array of string or object | Funding that contributed to intellectual content of this Article or associated Files |
 | Files (each is a `File`) | files | IRI or Node Object | Array of string or object | Data files for the submission, including the manuscript and any supplementary data. |
 
+
 | **[`Award`](#Award)** |
 | --- |
 | The award or awards that funded the research represented in the Article or data |
@@ -57,6 +59,7 @@ navigation_weight: 25
 | Co-Is (a `Person`) | cois | IRI or Node Object | Array of string or object | Any Co-Investigators for this Award |
 | Award Contact (a `Person`) | award-contact | IRI or Node Object | String or object | The institutional contact for this Award |
 
+
 | **[`Contract`](#Contract)** |
 | --- |
 | Encapsulates any and all form of agreement or contract related to the Submission, Article, or Data Files |
@@ -71,6 +74,7 @@ navigation_weight: 25
 | Full Text | contract-text | Value Object | string | The full text of the agreement, license, or terms of use. |
 | Canonical Location | contract-location | Value Object (xsd:anyURI) | string | The canonical location of the full text of this Contract. For example, the location of the [legal text](https://creativecommons.org/publicdomain/zero/1.0/legalcode) of the CC-0 license or [ASF 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt). |
 | See Also | see-also | Value Object (xsd:anyURI) | string | The splash page, or layperson equivalent view of an agreement, licence, or terms of use. For example, the CC-0 [splash page](https://creativecommons.org/publicdomain/zero/1.0/) or ASF 2.0 [splash-page](https://www.apache.org/licenses/LICENSE-2.0). |
+
 
 | **[`File`](#File)** |
 | --- |
@@ -90,6 +94,7 @@ navigation_weight: 25
 | Media Type | media-type | Value object | string | The IANA media type of the file (e.g. application/pdf) |
 | Size | size-bytes | Value object | number | The length of this File in bytes |
 
+
 | **[`Journal`](#Journal)** |
 | --- |
 | Metadata describing a Journal in print and/or electronic form |
@@ -106,6 +111,7 @@ navigation_weight: 25
 | Print ISSN | issn-print | Value Object | string | The ISSN of the print version of this Journal. |
 | Linking ISSN | issn-linking | Value Object | string | The Linking ISSN for this Journal. |
 | Publisher Name | publisher-name | Value Object | string | The name of the Journal publisher. |
+
 
 | **[`Organization`](#Organization)** |
 | --- |
@@ -131,6 +137,7 @@ navigation_weight: 25
 | Country | country-name | Value Object | string | The country of this Organization |
 | Postal Code | postal-code | Value Object | string | The postal code (i.e. zip code) of this Organization |
 
+
 | **[`Person`](#Person)** |
 | --- |
 | Accounts for people and their roles |
@@ -146,6 +153,7 @@ navigation_weight: 25
 | Phone | phone | Value Object | string | The phone number of this Person |
 | Email | email | Value Object | string | The primary email address of this Person |
 | ORCID | orcid | IRI | string | The ORCID of this Person encoded as an IRI |
+
 
 | **[`Publication`](#Publication)** |
 | --- |
@@ -163,6 +171,7 @@ navigation_weight: 25
 | Electronic Publication Date | publication-date-electronic | Value Object (xsd:dateTime) | string | The date this Publication was made available electronically |
 | Print Publication Date | publication-date-print | Value Object (xsd:dateTime) | string | The date this Publication was made available in print |
 | Journal | journal | IRI or Node Object | String or object | The Journal this Publication was published in |
+
 
 | **[`Submission`](#Submission)** |
 | --- |
