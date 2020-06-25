@@ -3,7 +3,9 @@ navigation_weight: 10
 ---
 # Specification Overview
 
-The BAGEND specification combines [BagIt][1], the BAGEND [BagIt profile][2], and the BAGEND [resource model][4] as a means to describe and transfer research outputs between institutions and federal agencies.    
+The BAGEND specification combines [BagIt][1], the BAGEND [BagIt profile][2], and the BAGEND [resource model][4] as a means to describe and transfer research outputs between institutions and federal agencies.
+
+This overview is intented to be non-normative, aiding the understanding of the specification itself.
 
 ## About BagIt
 BagIt is an IETF informational document ([RFC 8493][1]), specifying a methodology for organizing a group of files and related metadata, typically encapsulating them as a single zip or tar file.  Attractive features of BagIt include a structured layout of the files being packaged, a built-in mechanism for ensuring the integrity of the content, and the ability to tailor the metadata contained within the package using [BagIt Profiles][5].  These features, combined with the availability of tools and software that create and process bags, make it an attractive mechanism for depositing research articles and data to federal agency systems.
