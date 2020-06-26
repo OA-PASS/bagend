@@ -3,7 +3,7 @@ navigation_weight: 20
 ---
 # Resource Model Overview
 
-## `Submission` and `Article`
+## Submission and Article
 The BAGEND Resource Model is used to describe the payload of a BAGEND bag.  Each bag contains a single [`Submission`][4], which aggregates the remaining resources.  A [`Submission`][4] must have exactly one [`Article`][5]; therefore a single bag may only contain resources that describe a single publication.  If multiple articles are to be submitted for deposit, then a bag must be created and submitted for each article.
 
 ## People
