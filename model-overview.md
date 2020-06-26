@@ -31,6 +31,11 @@ In any case, identifiers for BAGEND resources must be URIs.  The BAGEND identity
 
 If a graph of BAGEND resources are placed on the web prior to the creation of a bag, the URLs of the web resources may be used as resource identifiers for the resources serialized within the bag, noting that the bag should contain the full serialization of the resource (supporting "by-reference" semantics in a bag is not a supported usecase).  Independent of the producer, the consumer of a bag may publish the resources on the web.  The degree to which a producer or consumer's infrastructure supports Linked Data may influence the desire to publish these resources, but the BAGEND specification does not make this a requirement.  In the case where the decision to publish bag resources is made, it may be appropriate to maintain a mapping of bag resource identifiers and their public locations on the web.
 
+## Identifiers
+Related to the identity model above is the general use of identifiers within the BAGEND model.  The primary identifier for all BAGEND resources must be URIs, and they must be unique within the scope of a bag.  BAGEND resources may link or relate to existing concepts or resources, which may or may not have a representation on the web.  This is generally accommodated in the Resource Model by the `identifiers` field present on each object in the model (note this field is a string and not required to be a URI), and specifically accommodated for certain concepts or identifiers such as DOIs for [`Article`][5] or ORCIDs for [`Person`][8].  The generic `identifiers` field and specialized identifier fields acknowledge that BAGEND resources may have equivalent or related resources in other systems, and these fields allow consumers and producers to reason about these links and relationships.
+
+For example, one may be able to look up an [`Article`][5] resource given a DOI, or a [`Person`][8] resource given an ORCID.  Persons are intriging because institutions often have identifiers for people provided by a central directory service (e.g. LDAP).  To provide for local bookeeping, a producer of BAGEND bags may choose to include these opaque identifiers on the [`Person`][8] `identifiers` field.  If opaque identifiers provided by a producer are preserved by the consumer upon receipt and processing, a producer could theoretically look up resources it provided to the consumer using the identifiers known to the producer.
+
 ## Linked Data Adoption
 The BAGEND resource model is designed to support Linked Data by providing a [JSON-LD][3] context and graph of resources rooted with the [`Submission`][4], but makes particular recommendations with respect to the serialization of the resource model within a BAGEND bag.  A specific goal of BAGEND is to allow adoption of the specification using idiomatic JSON, and to reduce the degree to which JSON-LD influences serialization of the resource model.  The idea is to strike a balance between the consumers who wish to adopt a Linked Data paradigm, and those who don't.  Ideally, those who don't will gradually update their infrastructure, data, and services to accommodate this paradigm.  In the meantime, current adopters of Linked Data may find the recommendations in the specification contrived or limiting.
 
@@ -42,6 +47,8 @@ If BAGEND provides value and gains traction, advanced Linked Data use cases will
 
 
 
+
+
 [1]: https://tools.ietf.org/html/rfc8493
 [2]: http://bagend.io/bagit-profile/0.1/
 [3]: https://www.w3.org/TR/json-ld11/
@@ -49,3 +56,4 @@ If BAGEND provides value and gains traction, advanced Linked Data use cases will
 [5]: /model-datadictionary.html#article
 [6]: /model-datadictionary.html#agreement
 [7]: /model-datadictionary.html#contract
+[8]: /model-datadictionary.html#person
