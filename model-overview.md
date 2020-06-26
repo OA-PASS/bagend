@@ -2,9 +2,17 @@
 navigation_weight: 20
 ---
 # Resource Model Overview
-The BAGEND Resource Model is used to describe the payload of a BAGEND bag.  Each bag contains a single [`Submission`][4], which aggregates the remaining resources.  A `Submission` must have exactly one [`Article`][5]; therefore a single bag may only contain resources that describe a single publication.  If multiple articles are to be submitted for deposit, then a bag must be created and submitted for each article.
 
+## `Submission` and `Article`
+The BAGEND Resource Model is used to describe the payload of a BAGEND bag.  Each bag contains a single [`Submission`][4], which aggregates the remaining resources.  A [`Submission`][4] must have exactly one [`Article`][5]; therefore a single bag may only contain resources that describe a single publication.  If multiple articles are to be submitted for deposit, then a bag must be created and submitted for each article.
+
+## People
 The model goes to some effort to distinguish between the individual persons involved with a submission.  These individuals include the submitter, custodial contact, and infrastructure contact.  The submitter is typically the person who has a legal or contractual obligation to fulfil various policies (vis-a-vis their institution or funders), i.e. a Principle or Co-Investigator.  The custodial contact supports a proxy submission use case, whereby the intellectual content of the submission was prepared by someone other than the submitter (e.g. a graduate student or administrative assistant).  Finally, the infrastructure contact is the individual or agent who oversees the technical aspects of creating and transferring a bag.
+
+## Agreements and Contracts
+In our personal experience we are familiar with generic workflows which require agreement to terms of use, or grant of a non-exclusive license for re-use of content.  [`Agreement`][6] and [`Contract`][7] are two resources that assert an individual has acknowledged, accepted, or otherwise agreed to the terms and conditions presented by a "contract".  These resources are meant to allow for machine attestation of these kinds of "click-through" agreements.  Recording these attestations in a bag provides assurance on the part of the receiver that proper protocol is being followed with respect to the transfer of content.
+
+Upon receipt of a bag, a workflow may be initiated on behalf of the submitter.  For example, deposit of an article to the NIH initiates a workflow in NIHMS on behalf of the submitter.  If the agreements and attestations are properly represented in the bag, these workflows would not have to present clickthrough agreements that have already been signed by the submitter.
 
 ## Relationship to BagIt
 The BAGEND specification builds upon the [BagIt standard][1] by:
@@ -24,8 +32,13 @@ Instances of resources defined by the BAGEND model do not necessarily have an id
 
 The BAGEND identity model calls for resource identifiers that are unique within the scope of a single bag.  If a graph of BAGEND resources are placed on the web prior to the creation of a bag, those urls may be used as resource identifiers.  Independently, the consumer of a bag may publish the same bag resources on the web.  The degree to which a producer or consumer's infrastructure supports Linked Data may influence the desire to publish these resources, but the BAGEND specification does not make this a requirement.  In the case where the decision to publish bag resources is made, it may be appropriate to maintain a mapping of bag resource identifiers and their public locations on the web.
 
+## Linked Data Potential
+
+
 [1]: https://tools.ietf.org/html/rfc8493
 [2]: http://bagend.io/bagit-profile/0.1/
 [3]: https://www.w3.org/TR/json-ld11/
 [4]: /model-datadictionary.html#submission
 [5]: /model-datadictionary.html#article
+[6]: /model-datadictionary.html#agreement
+[7]: /model-datadictionary.html#contract
