@@ -53,7 +53,7 @@ The award or awards that funded the research represented in the Article or data
 | Funding Agency (an `Organization`) | sponsor | IRI or Node Object | String or object | The Organization which funded this Award |
 | Award Start | award-start | Value Object | string | The date the funding for this Award started |
 | Award End | award-end | Value Object | string | The date the funding for this Award ended, or will end |
-| PI (a `Person`) | pi | IRI or Node Object | String or object | The Principle Investigator for this Award |
+| PI (a `Person`) | pi | IRI or Node Object | String or object | The Principal Investigator for this Award |
 | Co-Is (a `Person`) | cois | IRI or Node Object | Array of string or object | Any Co-Investigators for this Award |
 | Award Contact (a `Person`) | award-contact | IRI or Node Object | String or object | The institutional contact for this Award |
 
