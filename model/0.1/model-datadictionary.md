@@ -23,8 +23,8 @@ Represents the Author Accepted Manuscript or Published Article. The primary inte
 
 | **Conceptual Field** | **JSON-LD Field Name** | **JSON-LD Field Type** | **JSON Type** | **Description** |
 | --- | --- | --- | --- | --- |
-| File Identifier | @id | IRI | string | An identifier supplied by the agent creating the package. The identifier is an opaque IRI that uniquely identifies this File entity within the resource model of the package. |
-| File Entity Type | @type | IRI | string | A fixed value: &quot;File&quot; |
+| Article Identifier | @id | IRI | string | An identifier supplied by the agent creating the package. The identifier is an opaque IRI that uniquely identifies this Article entity within the resource model of the package. |
+| Article Entity Type | @type | IRI | string | A fixed value: &quot;Article&quot; |
 | Identifiers | identifiers | Value Object | Array of string | Arbitrary identifiers that are not otherwise defined in the data model. |
 | Title | title | Value Object | string | The title of this Article |
 | Abstract | abstract | Value Object | string | The abstract of this Article |
