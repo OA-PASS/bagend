@@ -12,10 +12,10 @@ Encapsulates any and all form of agreement or contract related to the Submission
 | Agreement Identifier | @id | IRI | string | An identifier supplied by the agent creating the package. The identifier is an opaque IRI that uniquely identifies this Agreement entity within the resource model of the package. |
 | Agreement Entity Type | @type | IRI | string | A fixed value: &quot;Agreement&quot; |
 | Identifiers | identifiers | Value Object | Array of string | Arbitrary identifiers that are not otherwise defined in the data model. |
-| Signatory (a `Person`) | signatory | IRI or Node Object | String or object | The individual who is agreeing to the Contract associated with this Agreement. |
+| Signatory (a `Person`) | signatory | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The individual who is agreeing to the Contract associated with this Agreement. |
 | Effective Date | effective-date | Value Object (xsd:dateTime) | string | The date a license is granted, copyright is claimed, or terms of use agreed upon. |
 | Role | contract-role | Value Object | string | The role of the Contract associated with the Agreement (e.g. a &quot;Terms of Service&quot;, &quot;License&quot;, etc.) |
-| Contract (a `Contract`) | contract | IRI or Node Object | String or object | The terms of use agreed upon, license being granted, or other contract. |
+| Contract (a `Contract`) | contract | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The terms of use agreed upon, license being granted, or other contract. |
 
 
 ## Article
@@ -33,10 +33,10 @@ Represents the Author Accepted Manuscript or Published Article. The primary inte
 | PMC ID | pmcId | Value Object | string | The PubMed Central identifier of this Article |
 | CrossRef ID | crossrefId | Value Object | string | The CrossRef identifier of this Article |
 | PII | pii | Value Object | string | The Publisher Item Identifier of this Article |
-| Authors (each is a `Person`) | authors | IRI or Node Object | Array of string or object | The Authors of this Article |
-| Publications (each is a `Publication`) | publications | IRI or Node Object | Array of string or object | For example the electronic publication and the print publication. |
-| Awards (each is an `Award`) | awards | IRI or Node Object | Array of string or object | Funding that contributed to intellectual content of this Article or associated Files |
-| Files (each is a `File`) | files | IRI or Node Object | Array of string or object | Data files for the submission, including the manuscript and any supplementary data. |
+| Authors (each is a `Person`) | authors | Array containing IRIs and/or Node Objects | Array of string or object | The Authors of this Article |
+| Publications (each is a `Publication`) | publications | Array containing IRIs and/or Node Objects | Array of string or object | For example the electronic publication and the print publication. |
+| Awards (each is an `Award`) | awards | Array containing IRIs and/or Node Objects | Array of string or object | Funding that contributed to intellectual content of this Article or associated Files |
+| Files (each is a `File`) | files | Array containing IRIs and/or Node Objects | Array of string or object | Data files for the submission, including the manuscript and any supplementary data. |
 
 
 ## Award
@@ -50,12 +50,12 @@ The award or awards that funded the research represented in the Article or data
 | Identifiers | identifiers | Value Object | Array of string | Arbitrary identifiers that are not otherwise defined in the data model. |
 | Award Name | award-name | Value Object | string | The name or title of this Award |
 | Agency Award Number | agency-award-number | Value Object | string | The alpha-numeric string assigned by the funding agency to this Award |
-| Funding Agency (an `Organization`) | sponsor | IRI or Node Object | String or object | The Organization which funded this Award |
+| Funding Agency (an `Organization`) | sponsor | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The Organization which funded this Award |
 | Award Start | award-start | Value Object | string | The date the funding for this Award started |
 | Award End | award-end | Value Object | string | The date the funding for this Award ended, or will end |
-| PI (a `Person`) | pi | IRI or Node Object | String or object | The Principal Investigator for this Award |
-| Co-Is (a `Person`) | cois | IRI or Node Object | Array of string or object | Any Co-Investigators for this Award |
-| Award Contact (a `Person`) | award-contact | IRI or Node Object | String or object | The institutional contact for this Award |
+| PI (a `Person`) | pi | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The Principal Investigator for this Award |
+| Co-Is (a `Person`) | cois | Array containing IRIs and/or Node Objects | Array of string or object | Any Co-Investigators for this Award |
+| Award Contact (a `Person`) | award-contact | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The institutional contact for this Award |
 
 
 ## Contract
@@ -142,7 +142,7 @@ Accounts for people and their roles
 | Identifiers | identifiers | Value Object | Array of string | Arbitrary identifiers that are not otherwise defined in the data model. |
 | First Name | given-name | Value Object | string | The first, or given, name of this Person |
 | Last Name | family-name | Value Object | string | The last name of this Person |
-| Affiliation (an `Organization`) | affiliation | IRI or Node Object | String or object | The Organization this Person is affiliated with. |
+| Affiliation (an `Organization`) | affiliation | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The Organization this Person is affiliated with. |
 | Phone | phone | Value Object | string | The phone number of this Person |
 | Email | email | Value Object | string | The primary email address of this Person |
 | ORCID | orcid | IRI | string | The ORCID of this Person encoded as an IRI |
@@ -162,7 +162,7 @@ Represents the Article in the context of its publication
 | Page End | page-end | Value Object | string | The ending page of this Publication in the Journal |
 | Electronic Publication Date | publication-date-electronic | Value Object (xsd:dateTime) | string | The date this Publication was made available electronically |
 | Print Publication Date | publication-date-print | Value Object (xsd:dateTime) | string | The date this Publication was made available in print |
-| Journal | journal | IRI or Node Object | String or object | The Journal this Publication was published in |
+| Journal | journal | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The Journal this Publication was published in |
 
 
 ## Submission
@@ -175,11 +175,11 @@ Represents a submission to an agency, containing the Article, Data Files, Award 
 | Identifiers | identifiers | Value Object | Array of string | Arbitrary identifiers that are not otherwise defined in the data model. |
 | Correlation Identifier | |
  | string | An identifier supplied by the sender of the package used for the express purpose of correlating information present in the model with agency records. For example, this would be an identifier suitable for PAC-M exports. |
-| Article (an `Article`) | article | IRI or Node Object | String or object | The Article describes the intellectual (i.e. custodial) content of the Submission. A Submission must contain exactly one Article. |
-| Award (an `Award`) | awards | IRI or Node Object | Array of string or object | Awards from funding agencies that support the research manifested in the Submission. |
-| Custodial Contact (a `Person`) | custodial-contact | IRI or Node Object | String or object | The administrative contact for custodial content of this submission. This individual would complete the submission in an agency system, or address mistakes made in the content of the submission (e.g. errors in the article or supporting data). The _Custodial_ Contact and the _Submitter_ will often be the same individual, but may be an individual who has prepared the Submission on behalf of the researcher. As opposed to the _Infrastructure_ Contact, who is the contact for the IT infrastructure that created the Submission. |
-| Submitter (a `Person`) | submitter | IRI or Node Object | String or object | The individual responsible for performing the submission; typically the same individual who is the signatory on any Agreements present in the Submission. |
-| Agreements (each is an `Agreement`) | agreements | IRI or Node Object | Array of string or object | Agreements signed as part of the submission process or workflow. |
+| Article (an `Article`) | article | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The Article describes the intellectual (i.e. custodial) content of the Submission. A Submission must contain exactly one Article. |
+| Award (an `Award`) | awards | Array containing IRIs and/or Node Objects | Array of string or object | Awards from funding agencies that support the research manifested in the Submission. |
+| Custodial Contact (a `Person`) | custodial-contact | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The administrative contact for custodial content of this submission. This individual would complete the submission in an agency system, or address mistakes made in the content of the submission (e.g. errors in the article or supporting data). The _Custodial_ Contact and the _Submitter_ will often be the same individual, but may be an individual who has prepared the Submission on behalf of the researcher. As opposed to the _Infrastructure_ Contact, who is the contact for the IT infrastructure that created the Submission. |
+| Submitter (a `Person`) | submitter | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The individual responsible for performing the submission; typically the same individual who is the signatory on any Agreements present in the Submission. |
+| Agreements (each is an `Agreement`) | agreements | Array containing IRIs and/or Node Objects | Array of string or object | Agreements signed as part of the submission process or workflow. |
 | Creation Date | created-date | Value Object (xsd:dateTime) | string | The date and time this Submission was created. |
 | Description | submission-description | Value Object | string | A brief, human-readable, description of the Submission and its provenance. |
-| Infrastructure Contact (a `Person`) | infrastructure-contact | IRI or Node Object | String or object | The person or agent responsible for creating the bag and the resource model (e.g. a system administrator or software program). As opposed to the _Custodial_ Contact who is responsible for the intellectual content contained within the Submission, and the _Submitter_ who is responsible for performing the Submission. |
+| Infrastructure Contact (a `Person`) | infrastructure-contact | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The person or agent responsible for creating the bag and the resource model (e.g. a system administrator or software program). As opposed to the _Custodial_ Contact who is responsible for the intellectual content contained within the Submission, and the _Submitter_ who is responsible for performing the Submission. |
