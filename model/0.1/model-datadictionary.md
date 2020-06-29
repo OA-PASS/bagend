@@ -13,7 +13,7 @@ Encapsulates any and all form of agreement or contract related to the [`Submissi
 | Agreement Entity Type | @type | IRI | string | A fixed value: &quot;Agreement&quot; |
 | Identifiers | identifiers | Value Object | Array of string | Arbitrary identifiers that are not otherwise defined in the data model. |
 | Signatory (a [`Person`][person]) | signatory | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The individual who is agreeing to the Contract associated with this Agreement. |
-| Effective Date | effective-date | Value Object (xsd:dateTime) | string | The date a license is granted, copyright is claimed, or terms of use agreed upon. |
+| Effective Date | effective-date | Value Object (`xsd:dateTime`) | string | The date a license is granted, copyright is claimed, or terms of use agreed upon. |
 | Role | contract-role | Value Object | string | The role of the Contract associated with the Agreement (e.g. a &quot;Terms of Service&quot;, &quot;License&quot;, etc.) |
 | Contract (a [`Contract`][cont]) | contract | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The terms of use agreed upon, license being granted, or other contract. |
 
@@ -161,8 +161,8 @@ Represents the [`Article`][art] in the context of its publication
 | Issue | issue | Value Object | string | The issue of the Journal this Publication appears in. |
 | Page Start | page-start | Value Object | string | The starting page of this Publication in the Journal |
 | Page End | page-end | Value Object | string | The ending page of this Publication in the Journal |
-| Electronic Publication Date | publication-date-electronic | Value Object (xsd:dateTime) | string | The date this Publication was made available electronically |
-| Print Publication Date | publication-date-print | Value Object (xsd:dateTime) | string | The date this Publication was made available in print |
+| Electronic Publication Date | publication-date-electronic | Value Object (`xsd:dateTime`) | string | The date this Publication was made available electronically |
+| Print Publication Date | publication-date-print | Value Object (`xsd:dateTime`) | string | The date this Publication was made available in print |
 | Journal (a [`Journal`][journal]) | journal | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The Journal this Publication was published in |
 
 
@@ -181,7 +181,7 @@ Represents a submission to an agency, containing the [`Article`][art], Data [Fil
 | Custodial Contact (a [`Person`][person]) | custodial-contact | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The administrative contact for custodial content of this submission. This individual would complete the submission in an agency system, or address mistakes made in the content of the submission (e.g. errors in the article or supporting data). The _Custodial_ Contact and the _Submitter_ will often be the same individual, but may be an individual who has prepared the Submission on behalf of the researcher. As opposed to the _Infrastructure_ Contact, who is the contact for the IT infrastructure that created the Submission. |
 | Submitter (a [`Person`][person]) | submitter | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The individual responsible for performing the submission; typically the same individual who is the signatory on any Agreements present in the Submission. |
 | Agreements (each is an [`Agreement`][agree]) | agreements | Array containing IRIs and/or Node Objects | Array of string or object | Agreements signed as part of the submission process or workflow. |
-| Creation Date | created-date | Value Object (xsd:dateTime) | string | The date and time this Submission was created. |
+| Creation Date | created-date | Value Object (`xsd:dateTime`) | string | The date and time this Submission was created. |
 | Description | submission-description | Value Object | string | A brief, human-readable, description of the Submission and its provenance. |
 | Infrastructure Contact (a [`Person`][person]) | infrastructure-contact | Array containing IRIs and/or Node Objects | Array containing strings and/or objects | The person or agent responsible for creating the bag and the resource model (e.g. a system administrator or software program). As opposed to the _Custodial_ Contact who is responsible for the intellectual content contained within the Submission, and the _Submitter_ who is responsible for performing the Submission. |
 
