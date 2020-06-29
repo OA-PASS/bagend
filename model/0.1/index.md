@@ -44,9 +44,7 @@ In particular, the bag should contain a full representation of a given resource.
 If BAGEND provides value and gains traction, advanced Linked Data use cases will be considered and accommodated in future revisions of the specification.  The potential of Linked Data to provide for transparent and open processing of federally funded research are myriad, and BAGEND hopes to further its adoption.  Of particular interest is the publication of submitted resources by federal agencies to a shared Linked Data platform, which would allow for the navigation and mining of provenance, funding, metadata, and data of federally funded reasearch by the public.  A shared platform would facilitate linking of articles to data, which are being deposited in a range of repositories across agencies and institutions.  The BAGEND model may not be the basis for such a platform, but may be used to influence its design and adoption.
 
 ## Trust Model
-
-
-
+BAGEND presumes a relationship between the producer and consumer of bags has been established out-of-band.  That is, trust is established between the sender and receiver in a way that is not specified by BAGEND.  This simplifies certain aspects of the implementation; for example, cryptographic verification of the bag or its content is not specified.
 
 
 [1]: https://tools.ietf.org/html/rfc8493
