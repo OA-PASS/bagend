@@ -45,17 +45,19 @@ The BAGEND Resource Model is used to describe the custodial content of the bag, 
 
 Table 1: Overview of the Resource Model entities
 
-| Resource Model Entity | Description |
-| --- | --- |
-| Agreement | Represents terms or conditions that govern the submission of the Article. |
-| Article | The intellectual content being published, typically a copy of an article that has been accepted for publication, post peer-review. |
-| Award | Represents funding that enabled or contributed to the research documented or performed in the article. |
-| File | Encapsulates the technical metadata of a finite, ordered, stream of binary digits that are contained within the bag payload directory. An Article may link to a File representing its content, supporting figures, tables, or data. |
-| Journal | Encapsulates a Journal and its metadata. |
-| Organization | Represents an entity unified by management, vision, or legal framework that may act as an agent. |
-| Person | Represents an individual agent that contributed to the Submission in some way. |
-| Publication | Represents the Article in the context of a printed publication. |
-| Submission | Aggregates the entities of the Resource Model as a cohesive whole and provides a place to record provenance detail. |
+<table>
+  <thead>
+    <tr>
+      <th><strong>Resource Model Entity</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+{% for entity in site.data.model.entities %}
+<tr><td><a href="{{ entity.frag }}"><code>{{ entity.name }}</code></a></td><td>{{ entity.desc }}</td></tr>
+{% endfor %}
+  </tbody>
+</table>
 
 ### Alignment with BagIt
 

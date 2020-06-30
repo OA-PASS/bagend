@@ -3,6 +3,8 @@ navigation_weight: 25
 ---
 # Resource Model Data Dictionary
 
+## Summary
+
 <table>
   <thead>
     <tr>
