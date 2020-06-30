@@ -1,0 +1,40 @@
+- name: Agreement
+  desc: Represents terms or conditions that govern the submission of the Article.  Encapsulates any and all form of agreement or contract related to the Submission, Article, or Data Files.
+  link: /model/0.1/model-datadictionary.html#agreement
+  since: "0.1"
+- name: Article
+  desc: The intellectual content being published, typically a copy of an article that has been accepted for publication, post peer-review.  Represents the Author Accepted Manuscript or Published Article. The primary intellectual output captured by a Submission.
+  link: /model/0.1/model-datadictionary.html#article
+  since: "0.1"
+- name: Award
+  desc: Represents funding that enabled or contributed to the research documented or performed in the article.  The award or awards that funded the research represented in the Article or data files.
+  link: /model/0.1/model-datadictionary.html#award
+  since: "0.1"
+- name: Contract
+  desc: Represents legal contracts such as Terms of Service, a License, etc. that specifically are agreed to in the process of performing a submission.
+  link: /model/0.1/model-datadictionary.html#contract
+  since: "0.1"
+- name: File
+  desc: Encapsulates the technical metadata of a finite, ordered, stream of binary digits that are contained within the bag payload directory. An Article may link to a File representing its content, supporting figures, tables, or data.  Represents the binary files and their roles associated with an Article. These would be considered part of the custodial content of a package.
+  link: /model/0.1/model-datadictionary.html#file
+  since: "0.1"
+- name: Journal
+  desc: Encapsulates a Journal and its metadata.  Metadata describing a Journal in print and/or electronic form
+  link: /model/0.1/model-datadictionary.html#journal
+  since: "0.1"
+- name: Organization
+  desc: Represents an entity unified by management, vision, or legal framework that may act as an agent.  Represents an organization related to the research or funding of the Article
+  link: /model/0.1/model-datadictionary.html#organization
+  since: "0.1"
+- name: Person
+  desc: Represents an individual agent that contributed to the Submission in some way.  Accounts for people and their roles.
+  link: /model/0.1/model-datadictionary.html#person
+  since: "0.1"
+- name: Publication
+  desc: Represents the Article in the context of a printed publication.
+  link: /model/0.1/model-datadictionary.html#publication
+  since: "0.1"
+- name: Submission
+  desc: Aggregates the entities of the Resource Model as a cohesive whole and provides a place to record provenance detail.  Represents a submission to an agency, containing the Article, Data Files, Award information, people involved in the submission process, and any agreements or contracts signed as part of the submission.
+  link: /model/0.1/model-datadictionary.html#submission
+  since: "0.1"

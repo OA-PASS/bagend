@@ -3,11 +3,19 @@ navigation_weight: 25
 ---
 # Resource Model Data Dictionary
 
-| **Resource Model Entity** | **Description** |
-| --- | --- |
-{% for entity in site.data.entities %}
-| [{{entity.name}}]({{entity.link}}) | {{entity.desc}} |
+<table>
+  <thead>
+    <tr>
+      <th><strong>Resource Model Entity</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+{% for entity in site.data.model.entities %}
+<tr><td><a href="{{ entity.link }}">{{ entity.name }}</a></td><td>{{ entity.desc }}</td></tr>
 {% endfor %}
+  </tbody>
+</table>
 
 ## Agreement
 
