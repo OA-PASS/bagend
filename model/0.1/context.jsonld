@@ -1,0 +1,222 @@
+{
+  "@context": {
+    "@vocab": "http://bagend.io/model/0.1#",
+    "bagend": "http://bagend.io/model/0.1#",
+    "prism": "http://prismstandard.org/namespaces/1.2/basic/",
+    "dct": "http://purl.org/dcterms/",
+    "fabio": "http://purl.org/spar/fabio/",
+    "foaf": "http://xmlns.com/foaf/0.1",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "premis": "http://www.loc.gov/premis/rdf/v1#",
+
+    "effective-date": {
+      "@type": "xsd:dateTime",
+      "@id": "bagend:effectiveDate"
+    },
+
+    "created-date": {
+      "@type": "xsd:dateTime",
+      "@id": "bagend:creationDate"
+    },
+
+    "publisher-name": {
+      "@id": "dct:publisher",
+      "@type": "dct:agent"
+    },
+
+    "crossrefId": {
+      "@type": "@id",
+      "@id": "bagend:crossrefId"
+    },
+
+    "orcid": {
+      "@type": "@id",
+      "@id": "bagend:hasOrcid"
+    },
+
+    "scivalId": {
+      "@type": "@id",
+      "@id": "bagend:scivalId"
+    },
+
+    "rorId": {
+      "@type": "@id",
+      "@id": "bagend:rorId"
+    },
+
+    "gridId": {
+      "@type": "@id",
+      "@id": "bagend:gridId"
+    },
+
+    "isniId": {
+      "@type": "@id",
+      "@id": "bagend:isniId"
+    },
+
+    "pii": "bagend:pii",
+
+    "geo-location": {
+      "@type": "@id",
+      "@id": "vcard:hasGeo"
+    },
+
+    "authors": {
+      "@type": "@id",
+      "@id": "bagend:hasAuthor"
+    },
+
+    "affiliation": {
+      "@type": "@id",
+      "@id": "bagend:hasAffiliation"
+    },
+
+    "publications": {
+      "@type": "@id",
+      "@id": "bagend:hasPublication"
+    },
+
+    "journal": {
+      "@type": "@id",
+      "@id": "bagend:hasJournal"
+    },
+
+    "signatory": {
+      "@type": "@id",
+      "@id": "bagend:hasSignatory"
+    },
+
+    "article": {
+      "@type": "@id",
+      "@id": "bagend:hasArticle"
+    },
+
+    "awards": {
+      "@type": "@id",
+      "@id": "bagend:hasAward"
+    },
+
+    "contract": {
+      "@type": "@id",
+      "@id": "bagend:hasContract"
+    },
+
+    "agreements": {
+      "@type": "@id",
+      "@id": "bagend:hasAgreement"
+    },
+
+    "custodial-contact": {
+      "@type": "@id",
+      "@id": "bagend:hasCustodialContact"
+    },
+
+    "infrastructure-contact": {
+      "@type": "@id",
+      "@id": "bagend:hasInfrastructureContact"
+    },
+
+    "submitter": {
+      "@type": "@id",
+      "@id": "bagend:hasSubmitter"
+    },
+
+    "doi": "prism:doi",
+    "agency-award-number": "bagend:agencyAwardNumber",
+    "award-name": "bagend:awardName",
+    "award-start": {
+      "@type": "xsd:dateTime",
+      "@id": "bagend:awardStart"
+    },
+    "award-end": {
+      "@type": "xsd:dateTime",
+      "@id": "bagend:awardEnd"
+    },
+    "sponsor": {
+      "@type": "@id",
+      "@id": "bagend:hasSponsor"
+    },
+    "pi": {
+      "@type": "@id",
+      "@id": "bagend:hasPrincipalInvestigator"
+    },
+    "cois": {
+      "@type": "@id",
+      "@id": "bagend:hasCoInvestigator"
+    },
+    "award-contact": {
+      "@type": "@id",
+      "@id": "bagend:hasAwardContact"
+    },
+    "duns": "bagend:duns",
+    "ipf": "bagend:ipf",
+    "localId": "bagend:localId",
+
+    "scopusAffilId": "bagend:scopusAffilId",
+    "pubmedId": "fabio:hasPubMedId",
+    "pmcId": "fabio:hasPubMedCentralId",
+
+    "title": "dct:title",
+
+    "identifiers": "bagend:hasIdentifier",
+
+    "submission-description": "bagend:submissionDescription",
+    "contract-role": "bagend:hasRole",
+    "hasRole": "bagend:hasRole",
+
+    "contract-name": "bagend:contractName",
+    "contract-description": "bagend:contractDescription",
+    "contract-text": "bagend:hasText",
+    "contract-location": {
+      "@type": "xsd:anyURI",
+      "@id": "bagend:hasLocation"
+    },
+    "see-also": {
+      "@type": "xsd:anyURI",
+      "@id": "bagend:seeAlso"
+    },
+
+    "email": "bagend:hasEmail",
+    "phone": "bagend:hasPhone",
+
+    "volume": "prism:volume",
+    "issue": "prism:issue",
+    "embargo": "prism:embargoDate",
+    "page-start": "prism:startingPage",
+    "page-end": "prism:endingPage",
+    "publication-date-electronic": "prism:publicationDate",
+    "publication-date-print": "prism:publicationDate",
+    "journal-title": "prism:publicationName",
+    "issn-print": "prism:issn",
+    "issn-electronic": "prism:eIssn",
+    "issn-linking": "fabio:hasIssnL",
+
+    "journal-id-nlm": "fabio:hasNationalLibraryOfMedicineJournalId",
+    "journal-id-nlmta": "fabio:hasNLMJournalTitleAbbreviation",
+
+    "given-name": "foaf:givenName",
+    "family-name": "foaf:familyName",
+
+    "canonical-location": {
+      "@type": "bagend:hasCanonicalLocation",
+      "@id": "xsd:anyURI"
+    },
+    "abstract": "dct:abstract",
+    "organization-name": "vcard:organization-name",
+    "organization-desc": "skos:altLabel",
+
+    "country-name": "vcard:country-name",
+    "locality": "vcard:locality",
+    "region": "vcard:region",
+    "street-address": "vcard:street-address",
+    "postal-code": "vcard:postal-code",
+
+    "copy-type": "bagend:copyType",
+    "files": "bagend:hasFile",
+    "file-name": "bagend:fileName",
+    "checksums": "bagend:hasChecksum",
+    "file-roles": "bagend:hasRole",
+    "size-bytes": "bagend:sizeBytes"
+  }
+}
