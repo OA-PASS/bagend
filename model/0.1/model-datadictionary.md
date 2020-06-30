@@ -3,6 +3,12 @@ navigation_weight: 25
 ---
 # Resource Model Data Dictionary
 
+| **Resource Model Entity** | **Description** |
+| --- | --- |
+{% for entity in site.data.entities %}
+| [{{entity.name}}]({{entity.link}}) | {{entity.desc}} |
+{% endfor %}
+
 ## Agreement
 
 Encapsulates any and all form of agreement or contract related to the [`Submission`][sub], [`Article`][art], or Data [Files][file]
