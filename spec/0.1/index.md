@@ -54,7 +54,7 @@ Table 1: Overview of the Resource Model entities
   </thead>
   <tbody>
 {% for entity in site.data.model.entities %}
-<tr><td><a href="{{ entity.frag }}"><code>{{ entity.name }}</code></a></td><td>{{ entity.desc }}</td></tr>
+<tr><td><a href="{{ entity.page}}{{ entity.frag }}"><code>{{ entity.name }}</code></a></td><td>{{ entity.desc }}</td></tr>
 {% endfor %}
   </tbody>
 </table>
