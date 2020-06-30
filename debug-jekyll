@@ -4,11 +4,13 @@ for ip in 185.199.109.153 185.199.111.153 185.199.108.153 185.199.110.153 ;
 do
   url01="http://$ip/bagit-profile/0.1/"
   url02="http://$ip/bagit-profile/0.2/"
+  url03="http://$ip/model/0.1/context.jsonld"
 
-  echo "$ip $url01"
-  echo -n "  " 
-  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" $url01
-  echo "$ip $url02"
-  echo -n "  "
-  curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" $url02
+  for u in $url01 $url02 $url03 ;
+  do
+    echo "$ip $u"
+    echo -n "  " 
+    curl -s -o /dev/null -w "%{http_code} %{content_type}\n" -H "Host: bagend.io" $u
+  done
+
 done
