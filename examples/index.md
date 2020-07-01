@@ -6,7 +6,7 @@ navigation_weight: 30
 ## Bag Declaration
 This is an example [`bagit.txt`][bag-decl], which is standard file included in all BagIt bags.  The BAGEND [profile][bagend-profile] accepts version `0.97` or `1.0`.
 
-{% highlight text linenos %}
+{% highlight text %}
 BagIt-Version: 1.0
 Tag-File-Character-Encoding: UTF-8
 {% endhighlight %}
@@ -17,11 +17,12 @@ Here is an example [`bag-info.txt`][bag-info] file, which contains metadata abou
 Since most, if not all, BAGEND bags contain a [`Submission`][model-sub], two additional tags _should_ be present:
 * BagEnd-Submission-File
 * BagEnd-Submission-Resource
+
 These elements allow BAGEND processors to locate and process the resource model in the bag.
 
 Addtional bag metadata is recommended, but it is not required.
 
-{% highlight text linenos %}
+{% highlight text %}
 BagIt-Profile-Identifier: http://bagend.io/bagit-profile/0.1/
 BagEnd-Submission-File: /resources/bagend/resources.jsonld
 BagEnd-Submission-Resource: https://pass.jhu.edu/fcrepo/rest/submissions/d8/67/77/ca/d86777ca-f17b-41ea-8ad2-5fe5f10ebff2
@@ -43,10 +44,14 @@ The resources file in a BAGEND bag is located under the `/resources/bagend` dire
 
 Recall that BAGEND resources are represented as JSON-LD.  If you aren't familiar with JSON-LD, that should be OK.  JSON-LD elements will be prefixed with the `@` character, but otherwise ought to be pretty self-explanatory.  For example, a JSON object containing the element `"@type": "Submission"` and `"@id": "foo"` can be understood to carry the "type" of "Submission" and identifer "foo".  The JSON-LD context (`@context`) carries special significance, as it provides JSON-LD aware processors with the information necessary to interpret the JSON as instance of an RDF data model.
 
-### Outline
-Here is an overview of the major elements contained in an example resource file.  The `Submission` is the root resource, and it serves to aggregate the remaining elements in the resource graph.  The immediate resources are the article (whose files reside in the bag payload directory), any agreements related to the submission process, and contact information the various parties involved in creating the submission.  The `Submission` can be thought of the resource that maintains the bookkeeping related to the transfer of the custodial content of the bag.  In theory, once a bag has been received, the information in the `Submission` _could_ be thrown away or ignored, only processing the `Article` which describes the custodial content of the bag.
+### Outline of a BAGEND resource model
+Here is an overview of the major elements contained in an example resource file.  
 
-{% highlight json linenos %}
+The `Submission` is the root resource, and it serves to aggregate the remaining elements in the resource graph.  The immediate resources are the article (whose files reside in the bag payload directory), any agreements related to the submission process, and contact information the various parties involved in creating the submission.  
+
+The `Submission` can be thought of the resource that maintains the bookkeeping related to the transfer of the custodial content of the bag.  In theory, once a bag has been received, the information in the `Submission` _could_ be thrown away or ignored, only processing the `Article` which describes the custodial content of the bag.
+
+{% highlight json %}
 {% raw %}
 {
   "@context": "http://bagend.io/model/0.1/context.jsonld",
