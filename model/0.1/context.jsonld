@@ -25,6 +25,11 @@
       "@type": "dct:agent"
     },
 
+    "correlationId": {
+      "@type": "xsd:anyURI",
+      "@id": "bagend:correlationId"
+    },
+
     "crossrefId": {
       "@type": "@id",
       "@id": "bagend:crossrefId"
