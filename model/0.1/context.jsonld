@@ -2,6 +2,7 @@
   "@context": {
     "@vocab": "http://bagend.io/model/0.1#",
     "bagend": "http://bagend.io/model/0.1#",
+    "instance": "http://bagend.io/instance/0.1#",
     "prism": "http://prismstandard.org/namespaces/1.2/basic/",
     "dct": "http://purl.org/dcterms/",
     "fabio": "http://purl.org/spar/fabio/",
@@ -25,10 +26,7 @@
       "@type": "dct:agent"
     },
 
-    "correlationId": {
-      "@type": "xsd:anyURI",
-      "@id": "bagend:correlationId"
-    },
+    "correlationId": "bagend:correlationId",
 
     "crossrefId": {
       "@type": "@id",
