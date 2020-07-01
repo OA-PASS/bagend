@@ -71,8 +71,7 @@ Table 2: Semantic alignment of BagIt metadata tags and Resource Model elements
 | --- | --- | --- |
 | Source-Organization, Organization-Address | Described by BagIt as &quot;Organization transferring the content.&quot; | The affiliated Organization of the Submission Contact |
 | Contact-Name, Contact-Phone, Contact-Email | Described by BagIt as &quot;Person at the source organization who is responsible for the content transfer.&quot; | Submission Contact |
-| External-Description | Described by BagIt as &quot;A brief explanation of the contents and provenance.&quot;
- | Submission Description |
+| External-Description | Described by BagIt as &quot;A brief explanation of the contents and provenance.&quot; | Submission Description |
 | External-Identifier | Described by BagIt as &quot;A sender-supplied identifier for the bag.&quot; | Submission Correlation ID, or any other suitable Submission identifier |
 | Bagging-Date | Described by BagIt as &quot;Date (YYYY-MM-DD) that the content was prepared for transfer.&quot; | Submission Creation Date |
 | Internal-Sender-Identifier | Described by BagIt as &quot;An alternate sender-specific identifier for the content and/or bag&quot; | Any suitable Submission identifier |
