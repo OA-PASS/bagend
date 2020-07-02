@@ -141,7 +141,7 @@ Each of these roles will be represented by a [`Person`][model-person].
 {% endraw %}
 {% endhighlight %}
 
-You can see that a `Person` encapulates expected attributes like name, email etc, but it also accommodates their affiliation (an [`Organization`][model-org].  If you have a second `Person` in the resource model that shares the same affiliation, you don't need to repeat the affiliation; you can reference it by its `@identifier`.
+You can see that a `Person` encapulates expected attributes like name, email etc, but it also accommodates their affiliation (an [`Organization`][model-org]).  If you have a second `Person` in the resource model that shares the same affiliation, you don't need to repeat the affiliation; you can reference it by its `@identifier`.
 
 {% highlight json %}
 {% raw %}
