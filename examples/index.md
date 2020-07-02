@@ -98,7 +98,7 @@ Here is an overview of the major elements contained in an example resource file,
 {% endhighlight %}
 
 ### Submission
-The `Submission` can be thought of the resource that maintains the bookkeeping related to the transfer of the custodial content of the bag.  It accounts for the persons or agents who contributed to the creation of the bag and its content, captures any licenses, terms of service, or other agreements encountered (or anticipated) in the submission process, and provides a detailed description of the published article and any date contained in the [bag payload directory][exbag-payload].
+The `Submission` can be thought of the resource that maintains the bookkeeping related to the transfer of the custodial content of the bag.  It accounts for the persons or agents who contributed to the creation of the bag and its content, captures any licenses, terms of service, or other agreements encountered (or anticipated) in the submission process, and provides a detailed description of the published article and any date contained in the bag payload directory.
 
 ### Submitter, Custodial Contact, and Infrastructure Contact
 
