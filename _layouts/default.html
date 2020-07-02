@@ -20,12 +20,16 @@
     <meta charset="UTF-8">
 
 {% seo %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="icon" type="image/png" href="/assets/favicon-32x32.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
   </head>
+
   <body>
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ site.title }}</h1>
@@ -46,6 +50,10 @@
         {% endfor %}
       </ul>
     </nav>
+  
+    <div class="js-toc">
+      TOC here
+    </div>
 
     <main id="content" class="main-content" role="main">
       {{ content }}
@@ -58,5 +66,18 @@
         {% endif %}
       </footer>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+    <script>
+        tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.js-toc',
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.js-toc-content',
+          // Which headings to grab inside of the contentSelector element.
+          headingSelector: 'h1, h2, h3',
+          // For headings inside relative or absolute positioned containers within content.
+          hasInnerContainers: true,
+        });
+    </script>
   </body>
 </html>
