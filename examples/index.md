@@ -67,6 +67,11 @@ Recall that BAGEND resources are represented as JSON-LD.  If you aren't familiar
 
 A link to the example resources file is [here][exbag-model], and the JSON-LD context can be found [here][exbag-ctx].
 
+## Resource identifiers
+
+TODO
+Referencing an existing resource within the model is done by using its identifier, denoted by `@identifier`.
+
 ### Outline of a BAGEND resource model
 Here is an overview of the major elements contained in an example resource file, rooted in the `Submission`.  We'll consider each of these resources in turn.
 
@@ -101,20 +106,129 @@ Here is an overview of the major elements contained in an example resource file,
 The `Submission` can be thought of the resource that maintains the bookkeeping related to the transfer of the custodial content of the bag.  It accounts for the persons or agents who contributed to the creation of the bag and its content, captures any licenses, terms of service, or other agreements encountered (or anticipated) in the submission process, and provides a detailed description of the published article and any date contained in the bag payload directory.
 
 ### Submitter, Custodial Contact, and Infrastructure Contact
+BAGEND provides the ability to record three different roles related to the creation of a bag.  Each of these resources are technically optional, but the receiver of a bag may use them to facilitate processing of the bag.
+* The person who is actually submitting the bag
+* The person who is responsible for the technical infrastructure creating the bag
+* The person who is responsible for the content of the bag payload
+
+Each of these roles will be represented by a [`Person`][model-person].
+
+{% highlight json %}
+{% raw %}
+  "submitter": {
+    "@id": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+    "@type": "Person",
+    "given-name": "Sayeed",
+    "family-name": "Choudhury",
+    "email": "sayeed@jhu.edu",
+    "identifiers": [
+      "johnshopkins.edu:employeeid:00000000",
+      "johnshopkins.edu:hopkinsid:ABCDEF",
+      "johnshopkins.edu:jhed:gchoudh2"
+    ],
+    "affiliation": {
+      "@id": "http://www.jhu.edu",
+      "@type": "Organization",
+      "organization-name": "Johns Hopkins University, Sheridan Libraries",
+      "geo-location": "geo:39.3290571,-76.6216137",
+      "country-name": "United States",
+      "region": "Maryland",
+      "locality": "Baltimore",
+      "postal-code": "21218",
+      "street-address": "3400 N Charles St"
+    }
+  }
+{% endraw %}
+{% endhighlight %}
+
+You can see that a `Person` encapulates expected attributes like name, email etc, but it also accommodates their affiliation (an [`Organization`][model-org].  If you have a second `Person` in the resource model that shares the same affiliation, you don't need to repeat the affiliation; you can reference it by its `@identifier`.
+
+{% highlight json %}
+{% raw %}
+  "custodial-contact": {
+    "@id": "https://pass.jhu.edu/fcrepo/rest/users/00222680",
+    "@type": "Person",
+    "given-name": "Karen",
+    "family-name": "Hanson",
+    "email": "karen.hanson@jhu.edu",
+    "orcid": "https://orcid.org/0000-0002-9354-8328",
+    "identifiers": [
+      "johnshopkins.edu:employeeid:11111111",
+      "johnshopkins.edu:hopkinsid:GHIJKL",
+      "johnshopkins.edu:jhed:khanson5"
+    ],
+    "affiliation": "http://www.jhu.edu"
+  }
+{% endraw %}
+{% endhighlight %}
 
 
 ### Agreements
+Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Contract`][model-cont] on a given date.  In our example, there is one agreement that was signed by the submitter (the `contract-text` is elided for brevity), whereby a license is granted by the submitter of materials to the repository for the purpose of archiving and dissemination.
+
+{% highlight json %}
+{% raw %}
+  "agreements": [
+    {
+      "@type": "Agreement",
+      "@id": "http://pass.jhu.edu#agreement",
+      "signatory": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+      "effective-date": "2018-11-27T19:58:34.790Z",
+      "contract-role": "license",
+      "contract": {
+        "@type": "Contract",
+        "@id": "http://pass.jhu.edu#j10p-license",
+        "contract-name": "Deposit requirements for JScholarship",
+        "contract-description": "Grant of license by submitter for materials submitted to JScholarship",
+        "contract-text": "NON-EXCLUSIVE LICENSE FOR USE OF MATERIALS This non-exclusive license defines the terms for the deposit of Materials ... "
+      }
+    }
+  ]
+{% endraw %}
+{% endhighlight %}
 
 ### Article
 
+{% highlight json %}
+{% raw %}
+
+
+{% endraw %}
+{% endhighlight %}
 #### Awards
 
+{% highlight json %}
+{% raw %}
+
+
+{% endraw %}
+{% endhighlight %}
 #### Publications
+
+{% highlight json %}
+{% raw %}
+
+
+{% endraw %}
+{% endhighlight %}
 
 #### Authors
 
+{% highlight json %}
+{% raw %}
+
+
+{% endraw %}
+{% endhighlight %}
+
 #### Files
 
+{% highlight json %}
+{% raw %}
+
+
+{% endraw %}
+{% endhighlight %}
 [bagend-profile]: /bagit-profile/0.1/
 [bagit]: https://tools.ietf.org/html/rfc8493
 [bag-decl]: https://tools.ietf.org/html/rfc8493#section-2.1.1
@@ -130,3 +244,7 @@ The `Submission` can be thought of the resource that maintains the bookkeeping r
 [exbag-info]: /assets/samples/0.1/rmap/bag-info.txt
 [exbag-model]: /assets/samples/0.1/rmap/resources/bagend/resources.jsonld
 [exbag-payload]: /assets/samples/0.1/rmap/data/
+[model-person]: /model/0.1/model-datadictionary.html#person
+[model-org]: /model/0.1/model-datadictionary.html#organization
+[model-cont]: /model/0.1/model-datadictionary.html#contract
+
