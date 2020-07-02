@@ -1,0 +1,2 @@
+84b95a92c19ad5809bf7d02b4d16b61a2780c635 data/JCDL2015_Poster_HandoutSize.pdf
+d8e09370687c2e31b1c6f362a11d289dff1d0f2b data/JCDL2015_DemoArticle.pdf

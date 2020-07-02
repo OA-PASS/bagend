@@ -1,0 +1,180 @@
+{
+  "@context": "http://bagend.io/model/0.1/context.jsonld",
+  "@type": "Submission",
+  "@id": "https://pass.jhu.edu/fcrepo/rest/submissions/d8/67/77/ca/d86777ca-f17b-41ea-8ad2-5fe5f10ebff2",
+  "identifiers": [
+    "https://pass.jhu.edu/fcrepo/rest/submissions/d8/67/77/ca/d86777ca-f17b-41ea-8ad2-5fe5f10ebff2"
+  ],
+
+  "correlation-id": "https://pass.jhu.edu/fcrepo/rest/submissions/d8/67/77/ca/d86777ca-f17b-41ea-8ad2-5fe5f10ebff2",
+  "creation-date": "2018-11-27T16:02:46.95Z",
+  "description": "The goal of the RMap Project is to create a prototype service that can capture and preserve maps of relationships amongst the increasingly distributed components (article, data, software, workflow objects, multimedia, etc.) that comprise the new model for scholarly publication.",
+  "submitter": {
+    "@id": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+    "@type": "Person",
+    "given-name": "Sayeed",
+    "family-name": "Choudhury",
+    "email": "sayeed@jhu.edu",
+    "identifiers": [
+      "johnshopkins.edu:employeeid:00000000",
+      "johnshopkins.edu:hopkinsid:ABCDEF",
+      "johnshopkins.edu:jhed:gchoudh2"
+    ],
+    "affiliation": {
+      "@id": "http://www.jhu.edu",
+      "@type": "Organization",
+      "organization-name": "Johns Hopkins University, Sheridan Libraries",
+      "geo-location": "geo:39.3290571,-76.6216137",
+      "country-name": "United States",
+      "region": "Maryland",
+      "locality": "Baltimore",
+      "postal-code": "21218",
+      "street-address": "3400 N Charles St"
+    }
+  },
+  "custodial-contact": {
+    "@id": "https://pass.jhu.edu/fcrepo/rest/users/00222680",
+    "@type": "Person",
+    "given-name": "Karen",
+    "family-name": "Hanson",
+    "email": "karen.hanson@jhu.edu",
+    "identifiers": [
+      "johnshopkins.edu:employeeid:11111111",
+      "johnshopkins.edu:hopkinsid:GHIJKL",
+      "johnshopkins.edu:jhed:khanson5"
+    ],
+    "affiliation": "http://www.jhu.edu"
+  },
+  "infrastructure-contact": {
+    "@id": "instance:packagingbot",
+    "@type": "Person",
+    "given-name": "Packaging",
+    "family-name": "Bot",
+    "email": "packaging@pass.jhu.edu",
+    "affiliation": "http://www.jhu.edu"
+  },
+  "agreements": [
+    {
+      "@type": "Agreement",
+      "@id": "http://pass.jhu.edu#agreement",
+      "signatory": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+      "effective-date": "2018-11-27T19:58:34.790Z",
+      "contract-role": "license",
+      "contract": {
+        "@type": "Contract",
+        "@id": "http://pass.jhu.edu#j10p-license",
+        "contract-name": "Deposit requirements for JScholarship",
+        "contract-description": "Grant of license by submitter for materials submitted to JScholarship",
+        "contract-text": "NON-EXCLUSIVE LICENSE FOR USE OF MATERIALS This non-exclusive license defines the terms for the deposit of Materials in all formats into the digital repository of materials collected, preserved and made available through the Johns Hopkins Digital Repository, JScholarship. The Contributor hereby grants to Johns Hopkins a royalty free, non-exclusive worldwide license to use, re-use, display, distribute, transmit, publish, re-publish or copy the Materials, either digitally or in print, or in any other medium, now or hereafter known, for the purpose of including the Materials hereby licensed in the collection of materials in the Johns Hopkins Digital Repository for educational use worldwide. In some cases, access to content may be restricted according to provisions established in negotiation with the copyright holder. This license shall not authorize the commercial use of the Materials by Johns Hopkins or any other person or organization, but such Materials shall be restricted to non-profit educational use. Persons may apply for commercial use by contacting the copyright holder. Copyright and any other intellectual property right in or to the Materials shall not be transferred by this agreement and shall remain with the Contributor, or the Copyright holder if different from the Contributor. Other than this limited license, the Contributor or Copyright holder retains all rights, title, copyright and other interest in the images licensed. If the submission contains material for which the Contributor does not hold copyright, the Contributor represents that s/he has obtained the permission of the Copyright owner to grant Johns Hopkins the rights required by this license, and that such third-party owned material is clearly identified and acknowledged within the text or content of the submission. If the submission is based upon work that has been sponsored or supported by an agency or organization other than Johns Hopkins, the Contributor represents that s/he has fulfilled any right of review or other obligations required by such contract or agreement. Johns Hopkins will not make any alteration, other than as allowed by this license, to your submission. This agreement embodies the entire agreement of the parties. No modification of this agreement shall be of any effect unless it is made in writing and signed by all of the parties to the agreement."
+      }
+    }
+  ],
+  "article": {
+    "@type": "Article",
+    "@id": "instance:Article1",
+    "doi": "10.1145/2756406.2756952",
+    "crossrefId": "https://api.crossref.org/works/10.1145/2756406.2756952",
+    "title": "The RMap Project",
+    "abstract": "The goal of the RMap Project is to create a prototype service that can capture and preserve maps of relationships amongst the increasingly distributed components (article, data, software, workflow objects, multimedia, etc.) that comprise the new model for scholarly publication. The demonstration will provide a tour of some of the features of the initial web service prototype. This will include examples of Distributed Scholarly Complex Objects (DiSCOs) and associated provenance data in RMap, as well as some of the options that users might have for interacting with the framework.",
+    "awards": [
+      {
+        "@id": "https://pass.jhu.edu/fcrepo/rest/grants/53/9f/73/9e/539f739e-ac21-4dab-9bf8-987e9bc5af54",
+        "@type": "Award",
+        "identifiers": [
+          "johnshopkins.edu:grant:116920"
+        ],
+        "award-name": "Alfred Sloan Foundation Data Curation Infrastructure",
+        "agency-award-number": "2014-3-24",
+        "award-start": "2014-03-28T00:00:00.000Z",
+        "award-end": "2017-04-01T00:00:00.000Z",
+        "pi": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+        "award-contact": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+        "sponsor": {
+          "@id": "https://pass.jhu.edu/fcrepo/rest/funders/ea/79/7b/d5/ea797bd5-f982-4ef3-8797-c785d53229d3",
+          "@type": "Organization",
+          "identifiers": [
+            "johnshopkins.edu:funder:302749"
+          ],
+          "organization-name": "Alfred P Sloan Research Foundation"
+        }
+      }
+    ],
+    "publications": [
+      {
+        "@type": "Publication",
+        "@id": "instance:Publication1",
+        "publication-date-electronic": "2020-04-20T00:00:00Z",
+        "journal": {
+          "@id": "instance:ProcACMIEEJoinConfDigitLibr",
+          "@type": "Journal",
+          "journal-title": "Proceedings of the 15th ACM/IEEE-CE on Joint Conference on Digital Libraries - JCDL '15",
+          "issn-print": "1552-5996",
+          "issn-linking": "1552-5996",
+          "publisher-name": "ACM Press",
+          "journal-id-nlm": "101587668",
+          "journal-id-nlmta": "Proc ACM/IEEE Joint Conf Digit Libr"
+        }
+      }
+    ],
+    "authors": [
+      "https://pass.jhu.edu/fcrepo/rest/users/00222680",
+      {
+        "@id": "instance:Author2",
+        "@type": "Person",
+        "given-name": "Tim",
+        "family-name": "DiLauro",
+        "email": "timmo@jhu.edu",
+        "orcid": "https://orcid.org/0000-0002-9997-3464",
+        "affiliation": "http://www.jhu.edu"
+      },
+      {
+        "@id": "instance:Author3",
+        "@type": "Person",
+        "given-name": "Mark",
+        "family-name": "Donoghue",
+        "email": "m.donoghue@ieee.org",
+        "orcid": "https://orcid.org/0000-0002-2803-1816",
+        "affiliation": {
+          "@id": "uri:urn:IEEE",
+          "@type": "Organization",
+          "organization-name": "IEEE",
+          "street-address": "45 Hoes Lane",
+          "locality": "Piscataway",
+          "region": "New Jersey",
+          "postal-code": "08854",
+          "country-name": "United States"
+        }
+      }
+    ],
+    "files": [
+      {
+        "@type": "File",
+        "@id": "instance:File1",
+        "location": "/data/JCDL2015_DemoArticle.pdf",
+        "file-name": "JCDL2015_DemoArticle.pdf",
+        "media-type": "application/pdf",
+        "size-bytes": "239795",
+        "checksums": [
+          "sha1:1f0cabe0b8ae2afe5468df1b6ad98a4a51c77373"
+        ],
+        "file-roles": [
+          "manuscript"
+        ]
+      },
+      {
+        "@type": "File",
+        "@id": "instance:File2",
+        "location": "/data/JCDL2015_Poster_HandoutSize.pdf",
+        "file-name": "JCDL2015_Poster_HandoutSize.pdf",
+        "media-type": "application/pdf",
+        "size-bytes": "56713",
+        "checksums": [
+          "sha1:b59b769295fe84374d5a1f152233c4a7cd259b04"
+        ],
+        "file-roles": [
+          "figure"
+        ]
+      }
+    ]
+  }
+}

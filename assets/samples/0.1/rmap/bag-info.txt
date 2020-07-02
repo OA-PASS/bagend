@@ -1,0 +1,10 @@
+BagIt-Profile-Identifier: http://bagend.io/bagit-profile/0.1/
+BagEnd-Submission-File: /resources/bagend/resources.jsonld
+BagEnd-Submission-Resource: https://pass.jhu.edu/fcrepo/rest/submissions/d8/67/77/ca/d86777ca-f17b-41ea-8ad2-5fe5f10ebff2
+Source-Organization: Johns Hopkins University, Sheridan Libraries
+Organization-Address: 3400 N Charles St, Baltimore MD, 21218
+Contact-Name: DRCC Operations
+Contact-Email: infra@library.jhu.edu
+Bagging-Date: 2018-11-27
+External-Identifier: https://pass.jhu.edu/fcrepo/rest/submissions/d8/67/77/ca/d86777ca-f17b-41ea-8ad2-5fe5f10ebff2
+Payload-Oxum:

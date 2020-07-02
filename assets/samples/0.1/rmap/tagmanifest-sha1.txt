@@ -1,0 +1,3 @@
+8010d7758f1793d0221c529fef818ff988dda141 bagit.txt
+535e313391dd5351fe817f11424accbe6c49e88f bag-info.txt
+aeea6f9e8b98565235629f41b3a08da56ee5882d resources/bagend/resources.jsonld
