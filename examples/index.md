@@ -22,7 +22,7 @@ Throughout this document we'll be working with an [exemplar bag][exbag-bin] whos
 This document doesn't explain BagIt itself (there are plenty of existing resources online for that), but we will go over where BAGEND uses or extends BagIt for its purposes.
 
 ## Bag Declaration
-[This][exbag-decl] is an example [`bagit.txt`][bag-decl], which is standard file included in all BagIt bags.  The BAGEND [profile][bagend-profile] accepts version `0.97` or `1.0`.
+[This][exbag-decl] is an example [`bagit.txt`][bag-decl], which is a standard file included in all BagIt bags.  The BAGEND [profile][bagend-profile] accepts version `0.97` or `1.0`.
 
 {% highlight text %}
 BagIt-Version: 1.0
@@ -48,15 +48,15 @@ Payload-Oxum: 296508.2
 BAGEND bags _must_ include a metadata tag `BagIt-Profile-Identifier` with the value of `http://bagend.io/bagit-profile/0.1/`.
 
 Since most, if not all, BAGEND bags contain a [`Submission`][model-sub], two additional tags _should_ be present.  These tags allow processors to locate the `Submission` resource.
-* BagEnd-Submission-File
-* BagEnd-Submission-Resource
+* `BagEnd-Submission-File`
+* `BagEnd-Submission-Resource`
 
 > Another option for referencing and locating resources within a bag was proffered by the [Data Conservancy Packaging specification][dc-baguri].  BAGEND did not go so far as to define or reuse the `bag://` URI scheme, but future iterations of BAGEND may (re-)introduce them.
 
 A couple of things to note:
 * The additional tags (`Source-Organization`, `Organization-Address`, etc.) are recommended, but not required.
 * A decision was made by the creator of the bag to use the correlation identifer of the `Submission` resource as the `External-Identifier` in the bag metadata.  The correlation identifer will be discussed in more detail later.
-* BAGEND bags are not required to have a `Submission`.  This allows for a usecase where metadata in `bag-info.txt` are [interpreted or mapped][spec-bagit] to BAGEND resource model elements.  We do not anticipate this to be the primary mode of BAGEND resource representation.
+* BAGEND bags are not required to have a `Submission`.  This allows for a usecase where metadata in `bag-info.txt` are [interpreted or mapped][spec-modeldesc] to BAGEND resource model elements.  We do not anticipate this to be the primary mode of BAGEND resource representation.
 
 ## BAGEND resources walkthrough
 The resources file in a BAGEND bag is located under the `/resources/bagend` directory.  It can be named whatever you wish; its location is specified by the `BagEnd-Submission-File` element in `bag-info.txt`.  All of the BAGEND resources exist in the same file, and form a graph rooted in the `Submission`.  The identify of the `Submission` resource is specified by the `BagEnd-Submission-Resource` element in `bag-info.txt`.  A BAGEND bag doesn't have to contain a `Submission`, but if it does, it must contain only one.
@@ -121,6 +121,7 @@ The `Submission` can be thought of the resource that maintains the bookkeeping r
 [bag-info]: https://tools.ietf.org/html/rfc8493#section-2.2.2
 [spec-bagit]: /spec/0.1/#relationship-to-bagit
 [spec-align]: /spec/0.1/#alignment-with-bagit
+[spec-modeldesc]: /spec/0.1/#model-description
 [model-sub]: /model/0.1/model-datadictionary.html#submission
 [dc-baguri]: http://dataconservancy.github.io/dc-packaging-spec/dc-packaging-spec-1.0.html#a4
 [exbag-ctx]: /model/0.1/context.jsonld
