@@ -103,7 +103,7 @@ Here is an overview of the major elements contained in an example resource file,
 {% endhighlight %}
 
 ### Submission
-The `Submission` can be thought of the resource that maintains the bookkeeping related to the transfer of the custodial content of the bag.  It accounts for the persons or agents who contributed to the creation of the bag and its content, captures any licenses, terms of service, or other agreements encountered (or anticipated) in the submission process, and provides a detailed description of the published article and any date contained in the bag payload directory.
+The `Submission` can be thought of the resource that maintains the bookkeeping related to the transfer of the custodial content of the bag.  It accounts for the persons or agents who contributed to the creation of the bag and its content, captures any licenses, terms of service, or other agreements encountered (or anticipated) in the submission process, and provides a detailed description of the published article and any data contained in the bag payload directory.
 
 ### Submitter, Custodial Contact, and Infrastructure Contact
 BAGEND provides the ability to record three different roles related to the creation of a bag.  Each of these resources are technically optional, but the receiver of a bag may use them to facilitate processing of the bag.
