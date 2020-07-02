@@ -49,15 +49,10 @@
           {% endif %}
         {% endfor %}
       </ul>
+      <span class="js-toc"></span>
     </nav>
   
-    <div class="js-toc">
-      <div class="js-toc-content">
-        TOC here
-      </div>
-    </div>
-
-    <main id="content" class="main-content" role="main">
+    <main id="content" class="main-content js-toc-content" role="main">
       {{ content }}
 
       <footer class="site-footer">
