@@ -68,9 +68,20 @@ Recall that BAGEND resources are represented as JSON-LD.  If you aren't familiar
 A link to the example resources file is [here][exbag-model], and the JSON-LD context can be found [here][exbag-ctx].
 
 ## Resource identifiers
+The `@id` field contains the resource identifier, and is how resources in BAGEND refer to each other.  Resource identifiers must be URIs, but other than that, there are no restrictions.  
 
-TODO
-Referencing an existing resource within the model is done by using its identifier, denoted by `@identifier`.
+> Referencing an existing resource within the model is done by using its identifier, denoted by `@identifier`.
+
+Resource identifiers in the example bag come in a few different forms, and it is worth asking if some forms should be preferred over others.
+* Some resources are identified using URIs from a different context (for example, URIs prefixed with `https://pass.jhu.edu` or `http://www.jhu.edu`) that resolve to a representation of the resource that context.
+* Other resources have a "made up" identifier that looks like it is from a different context, but do not resolve (e.g. the identifier for the `Agreement` in this example is `http://pass.jhu.edu#agreement`, which looks like a URL but doesn't actually resolve)
+* Still other resources use the `instance` prefix for compact IRIs, e.g. `instance:Article1` which expands to `http://bagend.io/instance/0.1#Article1`.  These URIs do not resolve.
+
+> The JSON-LD prefix `instance` is provided by the JSON-LD context, and may be used to create IRIs for resources.
+
+In addition to identifying and linking resources, the model provides for reconciling or mapping between the BAGEND resource and other contexts.  For example, the [`Article`][model-art] supports identifiers for popular contexts such as CrossRef, PubMed, PMC, and the publisher's item identifier.  BAGEND cannot account for all existing identifier schemes and contexts, and it cannot anticipate new schemes or contexts.  It supports ppopular contexts and schemes based on stakeholder feedback, and more may be added in the future.
+
+The generic `identifiers` field, which is present on every resource, can be used to capture those identifiers whose scheme or context is not yet represented in the BAGEND resource model.
 
 ### Outline of a BAGEND resource model
 Here is an overview of the major elements contained in an example resource file, rooted in the `Submission`.  We'll consider each of these resources in turn.
@@ -143,6 +154,8 @@ Each of these roles will be represented by a [`Person`][model-person].
 
 You can see that a `Person` encapulates expected attributes like name, email etc, but it also accommodates their affiliation (an [`Organization`][model-org]).  If you have a second `Person` in the resource model that shares the same affiliation, you don't need to repeat the affiliation; you can reference it by its `@identifier`.
 
+> JSON processors will need to be prepared to handle objects or object references.  The `affiliation` of the `custodial-contact` below refers to the `Organization` object defined above in the `submitter`.
+
 {% highlight json %}
 {% raw %}
   "custodial-contact": {
@@ -164,7 +177,7 @@ You can see that a `Person` encapulates expected attributes like name, email etc
 
 
 ### Agreements
-Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Contract`][model-cont] on a given date.  In our example, there is one agreement that was signed by the submitter (the `contract-text` is elided for brevity), whereby a license is granted by the submitter of materials to the repository for the purpose of archiving and dissemination.
+Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Contract`][model-cont] on a given date.  In our example, there is one agreement that was signed by the submitter (the `contract-text` is elided for brevity), whereby a license is granted by the submitter of materials to the repository for the purpose of archiving and dissemination.  At this point, any agreements are associated with the entire [`Submission`][model-sub], including the [`Article`][model-art] and all [files][model-file].
 
 {% highlight json %}
 {% raw %}
@@ -192,23 +205,77 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 {% highlight json %}
 {% raw %}
 
+  "article": {
+    "@type": "Article",
+    "@id": "instance:Article1",
+    "doi": "10.1145/2756406.2756952",
+    "crossrefId": "https://api.crossref.org/works/10.1145/2756406.2756952",
+    "title": "The RMap Project",
+    "abstract": "The goal of the RMap Project ... ",
+    
+    "awards": [ ... ],
+    
+    "publications": [ ... ],
+    
+    "authors": [ ... ],
+    
+    "files": [ ... ]
+  }
 
 {% endraw %}
 {% endhighlight %}
+
 #### Awards
 
 {% highlight json %}
 {% raw %}
-
-
+    "awards": [
+      {
+        "@id": "https://pass.jhu.edu/fcrepo/rest/grants/53/9f/73/9e/539f739e-ac21-4dab-9bf8-987e9bc5af54",
+        "@type": "Award",
+        "identifiers": [
+          "johnshopkins.edu:grant:116920"
+        ],
+        "award-name": "Alfred Sloan Foundation Data Curation Infrastructure",
+        "agency-award-number": "2014-3-24",
+        "award-start": "2014-03-28T00:00:00.000Z",
+        "award-end": "2017-04-01T00:00:00.000Z",
+        "pi": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+        "award-contact": "https://pass.jhu.edu/fcrepo/rest/users/21/36/86/ff/213686ff-da91-455b-977d-b1bae238d9b6",
+        "sponsor": {
+          "@id": "https://pass.jhu.edu/fcrepo/rest/funders/ea/79/7b/d5/ea797bd5-f982-4ef3-8797-c785d53229d3",
+          "@type": "Organization",
+          "identifiers": [
+            "johnshopkins.edu:funder:302749"
+          ],
+          "organization-name": "Alfred P Sloan Research Foundation"
+        }
+      }
+    ]
 {% endraw %}
 {% endhighlight %}
+
 #### Publications
 
 {% highlight json %}
 {% raw %}
-
-
+    "publications": [
+      {
+        "@type": "Publication",
+        "@id": "instance:Publication1",
+        "publication-date-electronic": "2020-04-20T00:00:00Z",
+        "journal": {
+          "@id": "instance:ProcACMIEEJoinConfDigitLibr",
+          "@type": "Journal",
+          "journal-title": "Proceedings of the 15th ACM/IEEE-CE on Joint Conference on Digital Libraries - JCDL '15",
+          "issn-print": "1552-5996",
+          "issn-linking": "1552-5996",
+          "publisher-name": "ACM Press",
+          "journal-id-nlm": "101587668",
+          "journal-id-nlmta": "Proc ACM/IEEE Joint Conf Digit Libr"
+        }
+      }
+    ]
 {% endraw %}
 {% endhighlight %}
 
@@ -216,8 +283,36 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 
 {% highlight json %}
 {% raw %}
-
-
+    "authors": [
+      "https://pass.jhu.edu/fcrepo/rest/users/00222680",
+      {
+        "@id": "instance:Author2",
+        "@type": "Person",
+        "given-name": "Tim",
+        "family-name": "DiLauro",
+        "email": "timmo@jhu.edu",
+        "orcid": "https://orcid.org/0000-0002-9997-3464",
+        "affiliation": "http://www.jhu.edu"
+      },
+      {
+        "@id": "instance:Author3",
+        "@type": "Person",
+        "given-name": "Mark",
+        "family-name": "Donoghue",
+        "email": "m.donoghue@ieee.org",
+        "orcid": "https://orcid.org/0000-0002-2803-1816",
+        "affiliation": {
+          "@id": "uri:urn:IEEE",
+          "@type": "Organization",
+          "organization-name": "IEEE",
+          "street-address": "45 Hoes Lane",
+          "locality": "Piscataway",
+          "region": "New Jersey",
+          "postal-code": "08854",
+          "country-name": "United States"
+        }
+      }
+    ]
 {% endraw %}
 {% endhighlight %}
 
@@ -225,10 +320,39 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 
 {% highlight json %}
 {% raw %}
-
-
+    "files": [
+      {
+        "@type": "File",
+        "@id": "instance:File1",
+        "location": "/data/JCDL2015_DemoArticle.pdf",
+        "file-name": "JCDL2015_DemoArticle.pdf",
+        "media-type": "application/pdf",
+        "size-bytes": "239795",
+        "checksums": [
+          "sha1:1f0cabe0b8ae2afe5468df1b6ad98a4a51c77373"
+        ],
+        "file-roles": [
+          "manuscript"
+        ]
+      },
+      {
+        "@type": "File",
+        "@id": "instance:File2",
+        "location": "/data/JCDL2015_Poster_HandoutSize.pdf",
+        "file-name": "JCDL2015_Poster_HandoutSize.pdf",
+        "media-type": "application/pdf",
+        "size-bytes": "56713",
+        "checksums": [
+          "sha1:b59b769295fe84374d5a1f152233c4a7cd259b04"
+        ],
+        "file-roles": [
+          "figure"
+        ]
+      }
+    ]
 {% endraw %}
 {% endhighlight %}
+
 [bagend-profile]: /bagit-profile/0.1/
 [bagit]: https://tools.ietf.org/html/rfc8493
 [bag-decl]: https://tools.ietf.org/html/rfc8493#section-2.1.1
@@ -247,4 +371,6 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 [model-person]: /model/0.1/model-datadictionary.html#person
 [model-org]: /model/0.1/model-datadictionary.html#organization
 [model-cont]: /model/0.1/model-datadictionary.html#contract
-
+[model-sub]: /model/0.1/model-datadictionary.html#submission
+[model-art]: /model/0.1/model-datadictionary.html#article
+[model-file]: /model/0.1/model-datadictionary.html#file
