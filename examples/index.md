@@ -418,7 +418,7 @@ Finally, we come to the [files][model-file] associated with the [`Submission`][m
 
 The attributes contain the technical metadata of the file.  Note that the `location` attribute is a path relative to the base of the bag, not a URI.  The `file-name` represents a logical name, and may differ from the name in the `location`.  The logical filename may contain characters that cannot be represented as a physical filename due to filesystem incompatibilities.  Or the bag producer could choose to locate files using names derived from their checksum, and use the logical `file-name` to carry the human-readable version.
 
-At this juncture, the `file-roles` are not a defined enumeration, but we would expect values such as "manuscript", "table", "figure", "data", etc.
+At this juncture, the `file-roles` are not a defined enumeration, but we would expect values such as "manuscript", "table", "figure", "supplement", etc.
 
 [bagend-profile]: /bagit-profile/0.1/
 [bagit]: https://tools.ietf.org/html/rfc8493
