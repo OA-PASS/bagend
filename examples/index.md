@@ -73,13 +73,13 @@ The `@id` field contains the resource identifier, and is how resources in BAGEND
 > Referencing an existing resource within the model is done by using its identifier, denoted by `@identifier`.
 
 Resource identifiers in the example bag come in a few different forms, and it is worth asking if some forms should be preferred over others.
-* Some resources are identified using URIs from a different context (for example, URIs prefixed with `https://pass.jhu.edu` or `http://www.jhu.edu`) that resolve to a representation of the resource that context.
+* Some resources are identified using URIs from a different context (for example, URIs prefixed with `https://pass.jhu.edu` or `http://www.jhu.edu`) that resolve to a representation of the resource in that context.
 * Other resources have a "made up" identifier that looks like it is from a different context, but do not resolve (e.g. the identifier for the `Agreement` in this example is `http://pass.jhu.edu#agreement`, which looks like a URL but doesn't actually resolve)
 * Still other resources use the `instance` prefix for compact IRIs, e.g. `instance:Article1` which expands to `http://bagend.io/instance/0.1#Article1`.  These URIs do not resolve.
 
 > The JSON-LD prefix `instance` is provided by the JSON-LD context, and may be used to create IRIs for resources.
 
-In addition to identifying and linking resources, the model provides for reconciling or mapping between the BAGEND resource and other contexts.  For example, the [`Article`][model-art] supports identifiers for popular contexts such as CrossRef, PubMed, PMC, and the publisher's item identifier.  BAGEND cannot account for all existing identifier schemes and contexts, and it cannot anticipate new schemes or contexts.  It supports ppopular contexts and schemes based on stakeholder feedback, and more may be added in the future.
+In addition to identifying and linking resources, the model provides for reconciling or mapping between the BAGEND resource and other contexts.  For example, the [`Article`][model-art] supports identifiers for popular contexts such as CrossRef, PubMed, PMC, and the publisher's item identifier.  BAGEND cannot account for all existing identifier schemes and contexts, and it cannot anticipate new schemes or contexts.  It supports popular contexts and schemes based on stakeholder feedback, and more may be added in the future.
 
 The generic `identifiers` field, which is present on every resource, can be used to capture those identifiers whose scheme or context is not yet represented in the BAGEND resource model.  This includes identifiers that may be relevant to the producer of the bag which they wish to be preserved or captured by the consumer of the bag.
 
@@ -260,9 +260,9 @@ The awards represent the funding used to produce any of the research in the arti
 {% endraw %}
 {% endhighlight %}
 
-Note the use of the `identifiers` field.  In this example, the producer of the bag includes local identifiers for the award (`johnshopkins.edu:grant:116920`) and the awarding organization (`johnshopkins.edu:funder:302749`).  This implies that this [`Award`][model-award] has some identity in a context that is opaque to anyone else other than the creator of this particular identifier.  The rationale for including this identifier in the BAGEND resource model is that it may be maintained and even indexed by the consumer.  This would allow for the producer of the bag to search and find the [`Award`][model-award] (or all [`Submission`][model-sub] or [`Article`][model-art]) with that identifier.
+Note the use of the `identifiers` field.  In this example, the producer of the bag includes local identifiers for the award (`johnshopkins.edu:grant:116920`) and the awarding organization (`johnshopkins.edu:funder:302749`).  This implies that this [`Award`][model-award] has some identity in a context that is opaque to anyone else other than the creator of this particular identifier.  The rationale for including this identifier in the BAGEND resource model is that it may be maintained and even indexed by the consumer.  This would allow for the producer of the bag to search and find the [`Award`][model-award] (or linked resources like [`Submission`][model-sub] or [`Article`][model-art]) with that identifier.
 
-> Often organizations will have different identifiers for the same concept, and may not maintain a local mapping between the institutions identifier and the funders identifier.  If BAGEND consumers commit to maintaining and even indexing the opaque `identifiers` for BAGEND resources, this increases their discoverabily by the institutions producing those resources.
+> Different organizations often have different identifiers for the same concept, and may not maintain a local mapping between the institutions identifier and the funders identifier.  If BAGEND consumers commit to maintaining and indexing the opaque `identifiers` for BAGEND resources, this increases their discoverabily by the institutions producing those resources.
 
 #### Publications
 A [`Publication`][model-pub] represents the BAGEND [`Article`][model-art] in the context of an online or print publication.  Typically the [`Publication`][model-pub] will include an embedded [`Journal`][model-journal], as is shown here.
