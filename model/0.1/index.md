@@ -50,8 +50,8 @@ BAGEND presumes a relationship between the producer and consumer of bags has bee
 [1]: https://tools.ietf.org/html/rfc8493
 [2]: http://bagend.io/bagit-profile/0.1/
 [3]: https://www.w3.org/TR/json-ld11/
-[4]: /model-datadictionary.html#submission
-[5]: /model-datadictionary.html#article
-[6]: /model-datadictionary.html#agreement
-[7]: /model-datadictionary.html#contract
-[8]: /model-datadictionary.html#person
+[4]: /model/0.1/model-datadictionary.html#submission
+[5]: /model/0.1/model-datadictionary.html#article
+[6]: /model/0.1/model-datadictionary.html#agreement
+[7]: /model/0.1/model-datadictionary.html#contract
+[8]: /model/0.1/model-datadictionary.html#person
