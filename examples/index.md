@@ -81,7 +81,7 @@ Resource identifiers in the example bag come in a few different forms, and it is
 
 In addition to identifying and linking resources, the model provides for reconciling or mapping between the BAGEND resource and other contexts.  For example, the [`Article`][model-art] supports identifiers for popular contexts such as CrossRef, PubMed, PMC, and the publisher's item identifier.  BAGEND cannot account for all existing identifier schemes and contexts, and it cannot anticipate new schemes or contexts.  It supports ppopular contexts and schemes based on stakeholder feedback, and more may be added in the future.
 
-The generic `identifiers` field, which is present on every resource, can be used to capture those identifiers whose scheme or context is not yet represented in the BAGEND resource model.
+The generic `identifiers` field, which is present on every resource, can be used to capture those identifiers whose scheme or context is not yet represented in the BAGEND resource model.  This includes identifiers that may be relevant to the producer of the bag which they wish to be preserved or captured by the consumer of the bag.
 
 ### Outline of a BAGEND resource model
 Here is an overview of the major elements contained in an example resource file, rooted in the `Submission`.  We'll consider each of these resources in turn.
@@ -201,10 +201,10 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 {% endhighlight %}
 
 ### Article
+The [`Article`][model-art] represents the intellectual content of a BAGEND payload.  An overview of the [`Article`][model-art] is below, showing the linkages to other resources.
 
 {% highlight json %}
 {% raw %}
-
   "article": {
     "@type": "Article",
     "@id": "instance:Article1",
@@ -221,11 +221,16 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
     
     "files": [ ... ]
   }
-
 {% endraw %}
 {% endhighlight %}
 
+The [`Article`][model-art] resource provides links or identifiers to its representation in other contexts.  The CrossRef `works` identifier is linked to, and the DOI of the published article is also provided.  Note that the DOI is not encoded as a URL (e.g. https://dx.doi.org/10.1145/2756406.2756952).  If a processor wishes to resolve a DOI, they are responsible for employing the necessary logic to do so.
+
+The awards represent the funding used to produce any of the research in the article or its associated files.  The publications are the representation of the BAGEND article in a published journal (print or online, or both).  The authors link to [people][model-person] that authored the article, and the files link to the article's representation along with any associate data.
+
+
 #### Awards
+[Awards][model-award] identify the funding sources for the research present in the article or its data files.
 
 {% highlight json %}
 {% raw %}
@@ -255,7 +260,12 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 {% endraw %}
 {% endhighlight %}
 
+Note the use of the `identifiers` field.  In this example, the producer of the bag includes local identifiers for the award (`johnshopkins.edu:grant:116920`) and the awarding organization (`johnshopkins.edu:funder:302749`).  This implies that this [`Award`][model-award] has some identity in a context that is opaque to anyone else other than the creator of this particular identifier.  The rationale for including this identifier in the BAGEND resource model is that it may be maintained and even indexed by the consumer.  This would allow for the producer of the bag to search and find the [`Award`][model-award] (or all [`Submission`][model-sub] or [`Article`][model-art]) with that identifier.
+
+> Often organizations will have different identifiers for the same concept, and may not maintain a local mapping between the institutions identifier and the funders identifier.  If BAGEND consumers commit to maintaining and even indexing the opaque `identifiers` for BAGEND resources, this increases their discoverabily by the institutions producing those resources.
+
 #### Publications
+A [`Publication`][model-pub] represents the BAGEND [`Article`][model-art] in the context of an online or print publication.  Typically the [`Publication`][model-pub] will include an embedded [`Journal`][model-journal], as is shown here.
 
 {% highlight json %}
 {% raw %}
@@ -279,7 +289,10 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 {% endraw %}
 {% endhighlight %}
 
+Note the use of the `instance` prefix; the producer of this bag used it to generate the resource IRIs for the `Publication` and `Journal`.
+
 #### Authors
+The authors of the article are captured by the `authors` key of the [`Article`][model-art].  Each author is a [`Person`][model-person] resource.
 
 {% highlight json %}
 {% raw %}
@@ -315,6 +328,55 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
     ]
 {% endraw %}
 {% endhighlight %}
+
+The interesting thing about this example is that there are three authors: one of them is referenced using its `@identifer`, while the other two authors are provided as JSON objects.  It so happens that the custodial contact of this submission is also one of the authors.  A [`Person`][model-person] with an `@identifier` of `https://pass.jhu.edu/fcrepo/rest/users/00222680` was defined earlier as the `custodial-contact` of the [`Submission`][model-sub].  Rather than re-key in all the information of the author, they can simply be referenced.  
+
+> JSON processers will need to be able to handle the situation where an object may be provided by value or by reference.
+
+An interesting consideration is what happens when a [`Person`][model-person] is defined elsewhere, but you wish to add an addtional attribute: what if the `custodial-contact` was defined but their ORCID was not included:
+{% highlight json %}
+{% raw %}
+  "custodial-contact": {
+    "@id": "https://pass.jhu.edu/fcrepo/rest/users/00222680",
+    "@type": "Person",
+    "given-name": "Karen",
+    "family-name": "Hanson",
+    "email": "karen.hanson@jhu.edu",
+    "identifiers": [
+      "johnshopkins.edu:employeeid:11111111",
+      "johnshopkins.edu:hopkinsid:GHIJKL",
+      "johnshopkins.edu:jhed:khanson5"
+    ],  
+    "affiliation": "http://www.jhu.edu"
+  }
+{% endraw %}
+{% endhighlight %}
+
+And when listing the authors, you wanted to include the individual's ORCID?  There are two options, one of which is preferred by BAGEND.
+
+* Option 1: Add the ORCID to the [`Person`][model-person] instance defined by the `custodial-contact` (this is approach taked by the  [example][exbag-model])
+* Option 2: Embed an instance of [`Person`][model-person] as the author, use the same `@identifier` as the `custodial-contact`, and just add their ORCID as a property
+
+Example of Option 2:
+{% highlight json %}
+{% raw %}
+    "authors": [
+      {
+        "@id": "https://pass.jhu.edu/fcrepo/rest/users/00222680",
+        "@type": "Person",
+        "orcid": "https://orcid.org/0000-0002-9354-8328"
+      },
+      {
+        ...
+      },
+      {
+        ...
+      }
+    ]
+{% endraw %}
+{% endhighlight %}
+
+From a JSON-LD perspective, either option will produce the same RDF.  But if you are processing the resources as plain JSON, the processing required to support option 2 is more sophisticated.  For this reason, we prefer that an instance of a resource be fully defined in a single place, rather than adding additional properties to the instance throughout.
 
 #### Files
 
@@ -374,3 +436,7 @@ Agreements link a signatory (an instance of [`Person`][model-person]) to a [`Con
 [model-sub]: /model/0.1/model-datadictionary.html#submission
 [model-art]: /model/0.1/model-datadictionary.html#article
 [model-file]: /model/0.1/model-datadictionary.html#file
+[model-award]: /model/0.1/model-datadictionary.html#award
+[model-pub]: /model/0.1/model-datadictionary.html#publication
+[model-journal]: /model/0.1/model-datadictionary.html#journal
+
