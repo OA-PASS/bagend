@@ -420,6 +420,8 @@ The attributes contain the technical metadata of the file.  Note that the `locat
 
 At this juncture, the `file-roles` are not a defined enumeration, but we would expect values such as "manuscript", "table", "figure", "supplement", etc.
 
+The bag payload may contain additional files that are not enumerated here; that is fine, but both producers and consumers should consider the consequences of that decision.  It may be better to revise the BAGEND resource model than work around it.
+
 [bagend-profile]: /bagit-profile/0.1/
 [bagit]: https://tools.ietf.org/html/rfc8493
 [bag-decl]: https://tools.ietf.org/html/rfc8493#section-2.1.1
