@@ -379,6 +379,7 @@ Example of Option 2:
 From a JSON-LD perspective, either option will produce the same RDF.  But if you are processing the resources as plain JSON, the processing required to support option 2 is more sophisticated.  For this reason, we prefer that an instance of a resource be fully defined in a single place, rather than adding additional properties to the instance throughout.
 
 #### Files
+Finally, we come to the [files][model-file] associated with the [`Submission`][model-sub].  The [`Submission`][model-sub] may be comprised of any number of files; typically there would be at least one file containing the content of the [`Article`][model-art].  In addition to the text, an [`Article`][model-art] may have accompanying data or figures which would be linked here as a [`File`][model-file].
 
 {% highlight json %}
 {% raw %}
@@ -414,6 +415,10 @@ From a JSON-LD perspective, either option will produce the same RDF.  But if you
     ]
 {% endraw %}
 {% endhighlight %}
+
+The attributes contain the technical metadata of the file.  Note that the `location` attribute is a path relative to the base of the bag, not a URI.  The `file-name` represents a logical name, and may differ from the name in the `location`.  The logical filename may contain characters that cannot be represented as a physical filename due to filesystem incompatibilities.  Or the bag producer could choose to locate files using names derived from their checksum, and use the logical `file-name` to carry the human-readable version.
+
+At this juncture, the `file-roles` are not a defined enumeration, but we would expect values such as "manuscript", "table", "figure", "data", etc.
 
 [bagend-profile]: /bagit-profile/0.1/
 [bagit]: https://tools.ietf.org/html/rfc8493
